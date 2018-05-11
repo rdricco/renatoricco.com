@@ -1,31 +1,122 @@
-var extractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const createPaginatedPages = require("gatsby-paginate");
+const _ = require("lodash");
+const slugify = require("lodash-addons"); 
+const path = require("path");
 
-exports.modifyWebpackConfig = function ({ config, stage }) {
-  config.merge({
-    postcss(wp) {
-      return [
-        require('postcss-cssnext')({ browsers: ['last 2 versions', '> 2%', 'ie 9'] }),
-      ]
-    },
-  })
+const worksTemplate = path.resolve("src/templates/works.jsx");
+const blogPostTemplate = path.resolve("src/templates/post.jsx");
+const tagTemplate = path.resolve("src/templates/tags.jsx");
 
-  if (stage === 'build-css') {
-    config.removeLoader('sass');
-    config.loader('sass', {
-      test: /\.(sass|scss)/,
-      exclude: /\.module\.(sass|scss)$/,
-      loader: extractTextWebpackPlugin.extract(['css?minimize', 'postcss', 'sass']),
-    })
+
+exports.onCreateNode = ({ node, boundActionCreators }) => {
+  const { createNode } = boundActionCreators;
+  // Posts here is the node you'd like to create markdown for use on remark plugins
+  if (node.internal.type === `Projects`) {
+    createNode({
+      id: `md-${node.id}`,
+      parent: node.id,
+      children: [],
+      internal: {
+        type: `${node.internal.type}Markdown`,
+        mediaType: `text/markdown`,
+        content: node.description,
+        contentDigest: node.internal.contentDigest
+      },
+      html: node.description,
+      title: node.title,
+      slug: _.slugify(node.title),
+      tags: node.tags,
+      category: node.category,
+      date: node.date,
+      createdAt: node.createdAt,
+      updatedAt: node.updatedAt,
+      isPublished: node.isPublished,
+      coverImage: node.coverImage,
+      images: node.images,
+    });
   }
+};
 
-  if (stage === 'develop') {
-    config.removeLoader('sass');
-    config.loader('sass', {
-      test: /\.(sass|scss)/,
-      exclude: /\.module\.(sass|scss)$/,
-      loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap'],
-    })
-  }
+exports.createPages = ({ graphql, boundActionCreators }) => {
+  const { createPage } = boundActionCreators;
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        posts: allProjectsMarkdown(
+          sort: { fields: [date], order: DESC }
+          filter: { isPublished: { ne: false } }
+          ) {
+          edges {
+            node {
+              id
+              isPublished
+              date(formatString: "YYYY")
+              html
+              tags
+              title
+              slug
+              coverImage{
+                id
+                handle
+              }
+              images {
+                id
+                handle
+              }
+              childMarkdownRemark{
+                excerpt
+              }
+            }
+          }
+        }
+      }
+    `).then(result => {
+        if (result.errors) {
+            console.log(result.errors);
+            return Promise.reject(result.errors);
+        }
+        const posts = result.data.posts.edges;
+        posts.forEach(({ node }) => {
+          createPage({
+            // path: _.slugify(node.slug),
+            path: node.slug,
+            component: blogPostTemplate,
+            context: {
+              slug: node.slug
+            }
+          });
+        });
 
-  return config
+        createPaginatedPages({
+          edges: posts,
+          createPage: createPage,
+          pageTemplate: worksTemplate,
+          pageLength: 100,
+          pathPrefix: "works",
+        });
+
+
+
+        let tags = [];
+        // Iterate through each post, putting all found tags into `tags`
+        _.each(posts, edge => {
+          if (_.get(edge, "node.tags")) {
+            tags = tags.concat(edge.node.tags);
+          }
+        });
+        // Eliminate duplicate tags
+        tags = _.uniq(tags);
+        // Make tag pages
+        tags.forEach(tag => {
+          createPage({
+            path: `/tags/${_.kebabCase(tag)}/`,
+            component: tagTemplate,
+            context: {
+              tag,
+            },
+          });
+        });
+        resolve();
+      });
+  });
 };
