@@ -6,6 +6,7 @@ module.exports = `
     title
     description
     content
+    slug
     date
     coverImage {
       id

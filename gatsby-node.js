@@ -26,7 +26,7 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
       content: node.content,
       description: node.description,
       title: node.title,
-      slug: _.slugify(node.title),
+      slug: node.slug,
       tags: node.tags,
       category: node.category,
       date: node.date,
