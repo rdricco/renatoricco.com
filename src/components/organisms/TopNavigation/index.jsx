@@ -7,6 +7,7 @@ import RightNav from "./RightNav"
 
 const NavigationContainer = Container.extend`
   max-width: 100%;
+  transition: all 0.5s ease-in;
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.32);
   padding-top: 15px;
   padding-bottom: 15px;
@@ -18,7 +19,6 @@ const NavigationContainer = Container.extend`
   }
   a:hover {
     text-decoration: underline;
-    text-decoration-color: teal;
   }
 `;
 

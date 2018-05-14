@@ -65,11 +65,11 @@ export default class MainLayout extends React.Component {
           <meta name="description" content={config.siteDescription} />
         </Helmet>
         <MainBox m={0} p={0} bg={rebassTheme.colors.secondaryLightest} color={rebassTheme.colors.black}>
-          <NavBar bg={rebassTheme.colors.secondaryLightest} color={rebassTheme.colors.black} iconColor={rebassTheme.colors.yellow} />
+        <NavBar bg={rebassTheme.colors.white} color={rebassTheme.colors.black} iconColor={rebassTheme.colors.yellow} />
 
           {children()}
 
-          <Footer bg={rebassTheme.colors.secondaryLightest} color={rebassTheme.colors.black} />
+          <Footer bg={rebassTheme.colors.white} color={rebassTheme.colors.black} />
         <ScrollToTop showUnder={160} size={30} color={rebassTheme.colors.yellow} />
         </MainBox>
       </Provider>;

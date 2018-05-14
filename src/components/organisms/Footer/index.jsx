@@ -5,10 +5,13 @@ import { Container, Flex, Box, Row, Column } from "rebass";
 import SocialLinks from "../../molecules/SocialLinks";
 import Copyright from "../../atoms/Copyright";
 
+const BoxFooter = styled(Box)`
+  box-shadow: 0px -3px 15px 0px rgba(0, 0, 0, 0.32);
+`;
 class Footer extends Component {
   render() {
     return (
-      <Box className="footer" color={this.props.color} bg={this.props.bg}>
+      <BoxFooter className="footer" color={this.props.color} bg={this.props.bg}>
         <Container my={4}>
           <Row mx={0}>
             <Column w={1/2} px={0} my={0} py={0} className="LeftFooter">
@@ -23,6 +26,7 @@ class Footer extends Component {
                 twitter={config.userTwitter}
                 linkedin={config.userLinkedin}
                 medium={config.userMedium}
+                behance={config.userBehance}
                  >
                  </SocialLinks>
               </Flex>
@@ -36,7 +40,7 @@ class Footer extends Component {
             </Column> */}
           </Row>
         </Container>
-      </Box>
+      </BoxFooter>
     );
   }
 }

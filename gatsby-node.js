@@ -11,7 +11,7 @@ const tagTemplate = path.resolve("src/templates/tags.jsx");
 exports.onCreateNode = ({ node, boundActionCreators }) => {
   const { createNode } = boundActionCreators;
   // Posts here is the node you'd like to create markdown for use on remark plugins
-  if (node.internal.type === `Projects`) {
+  if (node.internal.type === `Portfolios`) {
     createNode({
       id: `md-${node.id}`,
       parent: node.id,
@@ -19,10 +19,12 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
       internal: {
         type: `${node.internal.type}Markdown`,
         mediaType: `text/markdown`,
-        content: node.description,
+        content: node.content,
         contentDigest: node.internal.contentDigest
       },
-      html: node.description,
+      html: node.content,
+      content: node.content,
+      description: node.description,
       title: node.title,
       slug: _.slugify(node.title),
       tags: node.tags,
@@ -42,7 +44,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        posts: allProjectsMarkdown(
+        posts: allPortfoliosMarkdown(
           sort: { fields: [date], order: DESC }
           filter: { isPublished: { ne: false } }
           ) {
@@ -51,7 +53,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               id
               isPublished
               date(formatString: "YYYY")
-              html
+              content
+              description
               tags
               title
               slug

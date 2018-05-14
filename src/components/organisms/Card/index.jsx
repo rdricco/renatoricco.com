@@ -12,6 +12,7 @@ import {
   Heading,
   Text,
   Card,
+  Banner,
   BackgroundImage
 } from "rebass";
 import PostTags from '../../Utils/PostTags/'
@@ -38,7 +39,10 @@ class Article extends React.Component {
       return <Box w={[1, 1 / 2, 1 / 3]} mb={4} key={this.props.id}>
           <CardContainer m={1}>
           <Link to={this.props.slug} className="postURL">
-            <BackgroundImage ratio={0.5} src={this.props.coverCard} />
+            <BackgroundImage ratio={0.5} src={this.props.coverCard} >
+            
+            </BackgroundImage>
+            
           </Link>
             <Box mx={2} my={2} className="blogPost" key={this.props.id}>
               <Row mx={0} mb={2} className="postTitle">

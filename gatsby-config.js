@@ -36,21 +36,22 @@ module.exports = {
               rel: "nofollow"
             }
           },
-          // {
-          //   resolve: `gatsby-remark-images`,
-          //   options: {
-          //     maxWidth: 768
-          //   }
-          // }
+          `gatsby-remark-copy-images`,
           {
-            resolve: `gatsby-remark-responsive-image`,
+            resolve: `gatsby-remark-images`,
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 768,
-            },
-          },
+              maxWidth: 768
+            }
+          }
+          // {
+          //   resolve: `gatsby-remark-responsive-image`,
+          //   options: {
+          //     // It's important to specify the maxWidth (in pixels) of
+          //     // the content container as this plugin uses this as the
+          //     // base for generating different widths of each image.
+          //     maxWidth: 768,
+          //   },
+          // },
         ]
       }
     },

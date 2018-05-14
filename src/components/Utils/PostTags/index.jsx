@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import Link from "gatsby-link";
+import styled from "styled-components";
+
 import themeRebass from "../../_settings/rebassTheme"
 import {
   Text,
   Badge,
+  Small
 } from "rebass";
+
 
 class PostTags extends Component {
   render() {
+    const BadgeTag = styled(Badge)`
+    border-color: 'green';
+    
+    `
     const { tags } = this.props;
     return <div className="post-tag-container">
         {tags && tags.map(tag => (
@@ -17,9 +25,9 @@ class PostTags extends Component {
               style={{ textDecoration: "none" }}
               to={`/tags/${_.kebabCase(tag)}`}
             >
-              <Badge ml={0} bg={this.props.bg} color={this.props.color}>
+              <BadgeTag ml={0} bg={this.props.bg} color={this.props.color}>
                 {tag}
-              </Badge>
+              </BadgeTag>
             </Link>
           ))}
       </div>;

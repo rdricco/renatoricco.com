@@ -9,6 +9,9 @@ import PostTags from '../../Utils/PostTags/'
 const BoxContent = styled(Box)`
   img {
     max-width: 100%;
+    min-width: 100%;
+    box-shadow: 0.8px 0.9px 3px grey;
+    margin-top: 30px;
   }
 `;
 
@@ -19,7 +22,9 @@ class Article extends React.Component {
               <Row mx={0} mb={2} className="postTitle">
                 <Heading>
                   <Link to={this.props.slug} className="postURL">
-                    {this.props.title}
+                    {this.props.title}                 
+                    <Small ml={2}> ({this.props.date})</Small>
+
                   </Link>
                 </Heading>
               </Row>
@@ -27,9 +32,10 @@ class Article extends React.Component {
               <Row mx={0} mb={2} className="postTags">
                 <PostTags tags={this.props.tags} bg={this.props.badgeBgColor} color={this.props.badgeColor} />
               </Row>
-
-              <Row mx={0} mb={2} className="postDate">
-                <Small>{this.props.date}</Small>
+              <Row mx={0} >
+              <Markdown>
+                {this.props.description}
+              </Markdown>
               </Row>
               
             </Box>

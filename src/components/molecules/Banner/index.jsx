@@ -1,32 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Container, Row, Banner, Heading, Subhead } from "rebass";
+import config from "../../../../data/SiteConfig"
+import { Box, Container, Row, Banner, Heading, Subhead, Text, Avatar } from "rebass";
+import ReactFitText from 'react-fittext'
 
 class BannerSite extends React.Component {
     render() {
         const BannerHome = Banner.extend`
           box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.32) inset;
           min-height: 90vh;
-          background: linear-gradient(to right, ${this.props.colorLeft}, ${this.props.colorRight});
+          background: linear-gradient(to right, #F2994A, #F2C94C);
+          ${'' /* background: linear-gradient(to right, ${this.props.colorLeft}, ${this.props.colorRight}); */}
           text-decoration: none;
           color: ${this.props.colorFont};`;
-        return (
-            <BannerHome bg={this.props.bg}  backgroundImage={this.props.bgImage} className="BannerHome">
-                <Container py={0} my={0}>
-                    <Row>
-                        <Heading>
-                            {this.props.heading}
-                        </Heading>
-                    </Row>
-                    <Row>
-                        <Subhead>
-                            {this.props.tagline}
-                        </Subhead>
-                    </Row>
-                </Container>
+        return <BannerHome bg={this.props.bg} backgroundImage={this.props.bgImage} className="BannerHome">
+                          {/* <Avatar my={2} size={120} alt-text='avatar.png' src={config.userAvatar} /> */}
+            <Container>
 
-            </BannerHome>
-        );
+<Heading  fontSize={[ 6, 6, 7, 9 ]}>
+Hi, my name is renato ricco.
+</Heading>
+<Subhead fontSize={[4, 4, 5, 6]}>
+ I'm a graphic designer & front-end developer.
+</Subhead>
+<Text>
+I was born in São Paulo, where I currently live. <br/>
+Do you have a project we can work together? Nice, feel free to contact me.
+</Text>
+</Container>
+            
+          </BannerHome>;
     }
 }
 

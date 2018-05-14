@@ -1,22 +1,11 @@
 module.exports = `
 {
-  allAuthors {
-    id
-    isPublished
-    name
-    mainAuthor
-    biography
-    tagline
-    mainAuthor
-    avatar {
-      handle
-    }
-  }
-  allProjects {
+  allPortfolios {
     id
     isPublished
     title
     description
+    content
     date
     coverImage {
       id
@@ -32,21 +21,6 @@ module.exports = `
       width
       height
     }
-  }
-  allExperiences {
-    id
-    isPublished
-    employerName
-    employerLogo {
-      id
-      handle
-      width
-      height
-    }
-    jobTitle
-    jobDescription
-    startDate
-    endDate
   }
 }
 

@@ -20,13 +20,13 @@ const LeftNav = () => {
         works
         </NavRight>
       
-      <NavRight role="button" to="/contact">
+      {/* <NavRight role="button" to="/contact">
         contact
-        </NavRight>
+        </NavRight> */}
 
-        <NavRight role="button" to="/about">
+        {/* <NavRight role="button" to="/about">
           about
-        </NavRight>
+        </NavRight> */}
       </Flex>;
 
 }

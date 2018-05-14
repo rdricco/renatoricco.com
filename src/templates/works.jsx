@@ -7,10 +7,11 @@ import Helmet from "react-helmet";
 import Link from "gatsby-link";
 import { Row, Box, Container, BackgroundImage, Heading } from "rebass";
 import { FadeIn } from "animate-components";
-import Article from "../components/organisms/Card";
+import Card from "../components/organisms/Card";
 import SEO from "../components/Utils/SEO";
 import styled from "styled-components";
 import Slider from "react-styled-carousel";
+
 
 
 const Flex = styled(Box)`
@@ -29,18 +30,13 @@ const BlogPage = ({ data, pathContext }) => {
         <SEO />
       </Helmet>
       <FadeIn>
-
-      <Slider>
-        <h1>1</h1>
-        <h1>2</h1>
-        <h1>3</h1>
-        <h1>4</h1>
-      </Slider>
-
         <Container pt={4}>
+        <Box mx={1} my={4}>
+            <Heading>Featured Works</Heading>
+          </Box>
           <Flex flexWrap={"wrap"} flexDirection={"row"}>
             {group.map(({ node }) => (
-              <Article
+              <Card
                 key={node.id}
                 id={node.id}
                 slug={node.slug}
@@ -51,8 +47,8 @@ const BlogPage = ({ data, pathContext }) => {
                   node.coverImage.handle
                 }`}
                 // excerpt={node.childMarkdownRemark.html}
-                badgeColor={rebassTheme.colors.black}
-                badgeBgColor={rebassTheme.colors.yellow}
+                badgeColor={rebassTheme.colors.secondaryLightest}
+                badgeBgColor={rebassTheme.colors.black}
                 html={node.html}
               />
             ))}

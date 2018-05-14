@@ -16,7 +16,7 @@ const NavLeft = styled(Link)`
 const HomeIcon = styled(Home)`
   transition: all 0.2s ease-in;
   :hover {
-    color: #006660;
+    color: #F2C94C;
   }
 `;
 

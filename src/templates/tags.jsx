@@ -15,7 +15,7 @@ const TagList = styled.ul`
 
 const Tags = ({ pathContext, data }) => {
   const { tag } = pathContext;
-  const { edges, totalCount } = data.allProjectsMarkdown; 
+  const { edges, totalCount } = data.allPortfoliosMarkdown; 
 
 
   return <Box my={4}>
@@ -36,7 +36,7 @@ const Tags = ({ pathContext, data }) => {
             })}
           </TagList>
           <Link to="/tags">
-            <Text>All tags here</Text>
+            <Text>All tags</Text>
           </Link>
         </FadeIn>
       </Container>
@@ -66,7 +66,7 @@ export default Tags;
 
 export const pageQuery = graphql`
   query TagPage($tag: String) {
-    allProjectsMarkdown(
+    allPortfoliosMarkdown(
       limit: 2000
       sort: { fields: [date], order: DESC }
       filter: { tags: { in: [$tag] } }
