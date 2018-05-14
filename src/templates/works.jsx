@@ -12,16 +12,13 @@ import SEO from "../components/Utils/SEO";
 import styled from "styled-components";
 import Slider from "react-styled-carousel";
 
-
-
 const Flex = styled(Box)`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 `;
 
-
-const BlogPage = ({ data, pathContext }) => {
+const PortfolioPage = ({ data, pathContext }) => {
   const { group, index, first, last, pageCount } = pathContext;
   const previousUrl = index - 1 == 1 ? "" : (index - 1).toString();
   const nextUrl = (index + 1).toString();
@@ -46,10 +43,8 @@ const BlogPage = ({ data, pathContext }) => {
                 coverCard={`https://media.graphcms.com/resize=w:320,h:160,fit:crop/quality=v:75/compress/${
                   node.coverImage.handle
                 }`}
-                // excerpt={node.childMarkdownRemark.html}
                 badgeColor={rebassTheme.colors.secondaryLightest}
                 badgeBgColor={rebassTheme.colors.black}
-                html={node.html}
               />
             ))}
           </Flex>
@@ -58,7 +53,7 @@ const BlogPage = ({ data, pathContext }) => {
     </Box>;
 };
 
-export default BlogPage;
+export default PortfolioPage;
 
 
 
