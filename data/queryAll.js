@@ -1,44 +1,37 @@
-'use strict'
-
 module.exports = `
 {
-  allPosts{
+  allPortfoliosMarkdown {
     edges{
       node{
         id
-        author {
-          id
-          biography
-          gitHubProfile
-          linkedInProfile
-          facebookProfile
-          instagramProfile
-          twitterProfile
-          avatar{
-            id
-            fileName
-            handle
-            width
-            height
-          }
-        }
+        html
+        content
+        description
+        title
+        slug
+        tags
+        category
+        date(formatString: "YYYY")
+        isPublished
         coverImage {
           id
-          fileName
           handle
           width
           height
         }
-        title
-        slug
-        category
-        tags
-        date
-        createdAt
-        updatedAt
-        isPublished
-        html
+        images {
+          id
+          handle
+          width
+          height
+        }
+        childMarkdownRemark {
+          html
         }
       }
     }
-}`;
+  }
+}
+
+
+`;

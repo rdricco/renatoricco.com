@@ -22,17 +22,17 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
         content: node.content,
         contentDigest: node.internal.contentDigest
       },
-      html: node.content,
-      content: node.content,
-      description: node.description,
-      title: node.title,
-      slug: node.slug,
-      tags: node.tags,
-      category: node.category,
-      date: node.date,
       createdAt: node.createdAt,
       updatedAt: node.updatedAt,
       isPublished: node.isPublished,
+      title: node.title,
+      slug: node.slug,
+      date: node.date,
+      description: node.description,
+      html: node.content,
+      content: node.content,
+      tags: node.tags,
+      category: node.category,
       coverImage: node.coverImage,
       images: node.images,
     });
@@ -51,22 +51,29 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           edges {
             node {
               id
-              isPublished
-              date(formatString: "YYYY")
+              html
               content
               description
-              tags
               title
               slug
-              coverImage{
+              tags
+              category
+              date(formatString: "YYYY")
+              isPublished
+              coverImage {
                 id
                 handle
+                width
+                height
               }
               images {
                 id
                 handle
+                width
+                height
               }
               childMarkdownRemark{
+                html
                 excerpt
               }
             }
