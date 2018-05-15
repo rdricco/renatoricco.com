@@ -3,6 +3,8 @@ import config from "../../data/SiteConfig"
 import { Container, Box, Avatar, Heading } from "rebass";
 import { FadeIn } from "animate-components";
 import ReactFitText from 'react-fittext'
+import SEO from "../components/Utils/SEO";
+
 
 export default class AboutPage extends Component {
   render() {
@@ -10,16 +12,12 @@ export default class AboutPage extends Component {
           <FadeIn>
         <Container>
               <Avatar my={2} size={100} alt-text='avatar.png' src={config.userAvatar} />
-              {/* <Heading pt={3}>
-                {config.userDescription}
-              </Heading> */}
-                          <ReactFitText maxFontSize={'45'}>
+                <ReactFitText maxFontSize={'45'}>
 
                 <h1>
                     My work ranges from graphic-design to front-end development. I was born in São Paulo, where I currently live. If you would like to collaborate, feel free to contact me.
                 </h1>
-
-</ReactFitText>
+              </ReactFitText>
             
         </Container>
           </FadeIn>

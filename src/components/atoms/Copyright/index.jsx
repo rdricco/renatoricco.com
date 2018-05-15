@@ -13,7 +13,7 @@ class Copyright extends Component {
         {' '}
         {this.props.author}
         {' '}
-        All Rights Reserved.
+        all rights reserved.
     </Small>
 
     )
