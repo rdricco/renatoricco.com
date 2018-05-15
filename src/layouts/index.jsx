@@ -44,7 +44,8 @@ export default class MainLayout extends React.Component {
       a:visited,
       a:active {
         color: inherit;
-        text-decoration: none;
+        text-decoration-color: ${rebassTheme.colors.yellow};
+        ${"" /* text-decoration: none; */};
       }
       a:hover {
         text-decoration: underline;

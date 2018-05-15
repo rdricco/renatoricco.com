@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import Markdown from "react-markdown";
 import styled from "styled-components";
+import rebassTheme from "../../_settings/rebassTheme";
 import Link from "gatsby-link";
 import { Box, Row, Divider, Truncate, Small, Heading, Text } from "rebass";
 import PostTags from '../../Utils/PostTags/'
 
+const HeadingTop = styled(Heading)`
+  a,
+  a:visited,
+  a:active,
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
 
 const BoxContent = styled(Box)`
   img {
@@ -20,13 +30,12 @@ class Article extends React.Component {
         return <Box key={this.props.id}>
             <Box mb={2} mt={4} className="blogPost" key={this.props.id}>
               <Row mx={0} mb={2} className="postTitle">
-                <Heading>
+                <HeadingTop>
                   <Link to={this.props.slug} className="postURL">
                     {this.props.title}                 
-                    <Small ml={2}> ({this.props.date})</Small>
-
                   </Link>
-                </Heading>
+                    <Small ml={2}> ({this.props.date})</Small>
+                </HeadingTop>
               </Row>
               
               <Row mx={0} mb={2} className="postTags">

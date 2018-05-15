@@ -7,6 +7,8 @@ import {
   FormControl,
   FormControlFile
 } from "styled-form-component";
+import SEO from "../components/Utils/SEO";
+
 
 export default class AboutPage extends Component {
   render() {

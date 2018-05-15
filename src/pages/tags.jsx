@@ -6,6 +6,8 @@ import Link from "gatsby-link";
 import styled from "styled-components";
 import { Container, Box, Row, Heading, Subhead, Text } from "rebass";
 import { FadeIn } from "animate-components";
+import SEO from "../components/Utils/SEO";
+
 
 export const TagList = styled.ul`
   list-style-type: none;

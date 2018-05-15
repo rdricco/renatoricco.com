@@ -24,12 +24,12 @@ class SocialLinks extends Component {
             <GithubLink role="button" aria-label="github profile" size={this.props.size} color={this.props.color} />
           </Link> : null}
 
-      {this.props.linkedin != null ? <Link href={"https://linkedin.com/" + this.props.github}>
-        <LinkedIn role="button" aria-label="linkedin profile" size={this.props.size} color={this.props.color} />
-      </Link> : null}
+        {this.props.linkedin != null ? <Link href={"https://www.linkedin.com/in/" + this.props.github}>
+            <LinkedIn role="button" aria-label="linkedin profile" size={this.props.size} color={this.props.color} />
+          </Link> : null}
 
-      {this.props.behance != null ? <Link href={"https://behance.net/" + this.props.behance}>
-        <Behance role="button" aria-label="behance profile" size={this.props.size} color={this.props.color} />
+        {this.props.behance != null ? <Link href={"https://behance.net/" + this.props.behance}>
+            <Behance role="button" aria-label="behance profile" size={this.props.size} color={this.props.color} />
           </Link> : null}
 
         {this.props.instagram != null ? <Link href={"https://instagram/" + this.props.github}>
@@ -47,7 +47,6 @@ class SocialLinks extends Component {
         {this.props.twitter != null ? <Link href={"https://twitter.com/" + this.props.github}>
             <Twitter role="button" aria-label="twitter profile" size={this.props.size} color={this.props.color} />
           </Link> : null}
-
       </Box>;
   }
 }

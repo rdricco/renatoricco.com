@@ -17,7 +17,7 @@ module.exports = {
   // userFacebook: "r.ricco",
   // userInstagram: "r_ricco",
   // userTwitter: "USERNAME",
-  userLinkedin: "r_ricco",
+  userLinkedin: "renatoricco",
   // userBehance: "r_ricco",
   // userMedium: "USERNAME",
   //
