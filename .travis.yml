@@ -11,12 +11,27 @@ before_script:
 script:
   - yarn build
 
-deploy:
-  provider: pages
-  github-token: $GITHUB_TOKEN
-  verbose: true
-  skip-cleanup: true
-  keep-history: true
-  local-dir: public
+before_deploy:
+  - rm node_modules
   on:
-    branch: master
+      branch: develop
+
+deploy:
+  - provider: pages
+    github-token: $GITHUB_TOKEN
+    verbose: true
+    skip-cleanup: true
+    keep-history: true
+    local-dir: public
+    on:
+      branch: master
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: 
+      - secure: $AWS_SECRET_ACCESS_KEY
+    bucket: renatoriccodotcom
+    skip_cleanup: true
+    edge: true
+    on:
+      branch: develop
+    
