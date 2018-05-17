@@ -34,4 +34,3 @@ deploy:
     edge: true
     on:
       branch: develop
-    
