@@ -104,15 +104,6 @@ module.exports = {
         sv: process.env.HOTJAR_SNIPPET_VERSION
       }
     },
-    {
-      resolve: `gatsby-plugin-facebook-analytics`,
-      options: {
-        appId: process.env.FACEBOOKANALYTICS_ID,
-        includeInDevelopment: false,
-        debug: false,
-        language: "en_US"
-      }
-    },
     "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-manifest`,
