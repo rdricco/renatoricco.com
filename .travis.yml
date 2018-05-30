@@ -29,4 +29,4 @@ deploy:
     skip_cleanup: true
     edge: true
     on:
-      branch: develop
+      branch: s3-branch
