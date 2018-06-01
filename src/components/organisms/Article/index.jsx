@@ -46,21 +46,10 @@ class Article extends React.Component {
                 {this.props.description}
               </Markdown>
               </Row>
-              
             </Box>
 
               <BoxContent mx={0} className="postContent">
                 {this.props.html != null ? <div dangerouslySetInnerHTML={{ __html: this.props.html }} /> : null}
-
-                {this.props.excerpt != null ? <Box mb={4}>
-                    <Text mb={2}>{this.props.excerpt}</Text>
-
-                    <Small>
-                      <Link to={this.props.slug} className="postURL">
-                        Read More
-                      </Link>
-                    </Small>
-                  </Box> : null}
               </BoxContent>
 
           </Box>;

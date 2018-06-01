@@ -60,7 +60,7 @@ export default class MainLayout extends React.Component {
         font-family: "Poppins";
       }`;
     const { children } = this.props;
-    return <Provider theme={rebassTheme} ClassName="FullPage">
+    return <Provider theme={rebassTheme} className="FullPage">
         <Helmet>
           <title>{`${config.siteTitle} | ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />

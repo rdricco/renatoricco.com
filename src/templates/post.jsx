@@ -10,22 +10,50 @@ import {
   Box,
   Banner,
 } from "rebass";
+import styled from "styled-components";
+import GraphImg from "graphcms-image";
+import _ from 'lodash';
+
+const GraphImage = styled(GraphImg)`
+  max-width: 100%;
+  min-width: 100%;
+  box-shadow: 0.8px 0.9px 3px grey;
+  margin-top: 30px;
+`;
+
 export default class PostTemplate extends React.Component {
   render() {
     const { slug } = this.props.pathContext;
     const postNode = this.props.data.portfoliosMarkdown;
     const post = postNode;
-    // const author = post.author;
-    const coverPost = post.coverImage.handle;
-
+    const author = post.author;
+    const BannerImage = post.bannerImage.handle;
+    const images = _.sortBy(post.images, [function (o) { return o.fileName; }]);
     return <Box key={post.id} pb={6}>
         <FadeIn>
           <Helmet title={`${post.title} | ${config.siteTitle}`} />
 
-          {/* <Banner bg="grey" backgroundImage={`https://media.graphcms.com/resize=w:1900,h:646,fit:clip/quality=v:75/compress/${coverPost}`} /> */}
+        {/* <Banner bg="grey" backgroundImage={`https://media.graphcms.com/resize=w:1900,h:646,fit:clip/quality=v:75/compress/${BannerImage}`} /> */}
+          
 
           <Container pt={4}>
             <Article slug={post.slug} title={post.title} date={post.date} tags={post.tags} description={post.description} html={post.childMarkdownRemark.html} badgeColor={rebassTheme.colors.secondaryLightest} badgeBgColor={rebassTheme.colors.black} />
+
+
+
+          {images.map(image => (
+            <Box pb={100}>
+              <GraphImage
+                image={image}
+                alt={image.altText}
+                title={image.caption}
+                withWebp={true}
+                maxWidth={1200}
+                fit={'crop'} 
+              />
+            </Box>
+          ))}
+
           </Container>
         </FadeIn>
       </Box>;
@@ -47,11 +75,30 @@ export const pageQuery = graphql`
              childMarkdownRemark {
                html
              }
-             coverImage {
+             images{
+               altText
+               caption
+               order
                id
-               handle
-               width
+               mimeType
+               fileName
                height
+               width
+               url
+               handle
+               size
+             }
+             coverImage {
+               altText
+               caption
+               id
+               mimeType
+               fileName
+               height
+               width
+               url
+               handle
+               size
              }
              slug
            }

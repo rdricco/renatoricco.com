@@ -13,17 +13,44 @@ module.exports = `
         category
         date(formatString: "YYYY")
         isPublished
-        coverImage {
+        bannerImage {
+          altText
+          caption
+          order
           id
-          handle
-          width
+          mimeType
+          fileName
           height
+          width
+          url
+          handle
+          size
+        }
+        coverImage {
+          altText
+          caption
+          order
+          id
+          mimeType
+          fileName
+          height
+          width
+          url
+          handle
+          size
         }
         images {
+          altText
+          caption
+          order
           id
-          handle
-          width
+          mimeType
+          fileName
           height
+          width
+          url
+          handle
+          size
         }
         childMarkdownRemark {
           html

@@ -34,6 +34,7 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
       tags: node.tags,
       category: node.category,
       coverImage: node.coverImage,
+      bannerImage: node.bannerImage,
       images: node.images,
     });
   }
@@ -58,19 +59,32 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               slug
               tags
               category
-              date(formatString: "YYYY")
+              date(formatString: "MM/YYYY")
               isPublished
               coverImage {
+                altText
+                caption
                 id
-                handle
-                width
+                mimeType
+                fileName
                 height
+                width
+                url
+                handle
+                size
               }
               images {
+                altText
+                caption
+                order
                 id
-                handle
-                width
+                mimeType
+                fileName
                 height
+                width
+                url
+                handle
+                size
               }
               childMarkdownRemark{
                 html
