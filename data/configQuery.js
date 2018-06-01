@@ -9,18 +9,43 @@ module.exports = `
     slug
     date
     coverImage {
+      altText
+      caption
       id
-      handle
-      width
+      mimeType
+      fileName
       height
+      width
+      url
+      handle
+      size
+    }
+    bannerImage {
+      altText
+      caption
+      id
+      mimeType
+      fileName
+      height
+      width
+      url
+      handle
+      size
     }
     category
     tags
     images {
+      altText
+      caption
+      order
       id
-      handle
-      width
+      mimeType
+      fileName
       height
+      width
+      url
+      handle
+      size
     }
   }
 }
