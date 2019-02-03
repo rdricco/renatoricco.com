@@ -1,9 +1,11 @@
-language: node
-
+language: node_js
 cache:
   yarn: true
   directories:
-    - "node_modules"
+    - ~/.npm
+
+node_js:
+  - '9'
 
 script:
   - yarn build
@@ -27,3 +29,7 @@ deploy:
     edge: true
     on:
       branch: s3-branch
+
+
+
+
