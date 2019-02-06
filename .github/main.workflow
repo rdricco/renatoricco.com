@@ -4,12 +4,15 @@ workflow "Build and Deploy Pages" {
     "Install",
     "Build",
     "Deploy Pages",
+    "cache",
   ]
 }
 
 action "Install" {
   uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
   args = "install"
+  needs = ["cache"]
+
 }
 
 action "Build" {
@@ -35,4 +38,9 @@ action "Deploy Pages" {
     BUILD_DIR = "public"
   }
   needs = ["Build"]
+}
+
+action "cache" {
+  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
+  args = "cache clean --force"
 }
