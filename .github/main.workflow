@@ -1,6 +1,15 @@
 workflow "Build and Deploy Pages" {
   on = "push"
-  resolves = ["Build", "Deploy Pages"]
+  resolves = [
+    "Install",
+    "Build",
+    "Deploy Pages",
+  ]
+}
+
+action "Install" {
+  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
+  args = "install"
 }
 
 action "Build" {
@@ -10,6 +19,7 @@ action "Build" {
   }
   args = "run build"
   secrets = ["GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
+  needs = ["Install"]
 }
 
 action "Deploy Pages" {
@@ -24,4 +34,5 @@ action "Deploy Pages" {
   env = {
     BUILD_DIR = "public"
   }
+  needs = ["Build"]
 }
