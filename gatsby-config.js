@@ -88,22 +88,22 @@ module.exports = {
         color: config.themeColor
       }
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLEANALYTICS_ID,
-        head: false,
-        anonymize: true,
-        respectDNT: true
-      }
-    },
-    {
-      resolve: `gatsby-plugin-hotjar`,
-      options: {
-        id: process.env.HOTJAR_ID,
-        sv: process.env.HOTJAR_SNIPPET_VERSION
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: process.env.GOOGLEANALYTICS_ID,
+    //     head: false,
+    //     anonymize: true,
+    //     respectDNT: true
+    //   }
+    // },
+    // {
+    //   resolve: `gatsby-plugin-hotjar`,
+    //   options: {
+    //     id: process.env.HOTJAR_ID,
+    //     sv: process.env.HOTJAR_SNIPPET_VERSION
+    //   }
+    // },
     "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-manifest`,
