@@ -10,7 +10,6 @@ import { FadeIn } from "animate-components";
 import Card from "../components/organisms/Card";
 import SEO from "../components/Utils/SEO";
 import styled from "styled-components";
-import Slider from "react-styled-carousel";
 
 const Flex = styled(Box)`
   display: flex;

@@ -9,7 +9,7 @@ const tagTemplate = path.resolve("src/templates/tags.jsx");
 
 
 exports.onCreateNode = ({ node, boundActionCreators }) => {
-  const { createNode } = boundActionCreators;
+  const { createNode, createParentChildLink } = boundActionCreators;
   // Posts here is the node you'd like to create markdown for use on remark plugins
   if (node.internal.type === `Portfolios`) {
     createNode({
@@ -38,6 +38,26 @@ exports.onCreateNode = ({ node, boundActionCreators }) => {
       images: node.images,
     });
   }
+  if (node.internal.type === `PortfoliosMarkdown`) {
+  const images = node.images;
+ {images.map(image => createNode({
+      id: `${node.id} >> GCImageSharp`,
+      parent: node.id,
+      extension: 'png',
+      children: [],
+      path: image.url,
+      url: image.url,
+      absolutePath: 'https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/callcenter-free-call-center-website-template.jpg',
+      internal: {
+        type: `GCImageSharp`,
+        mediaType: node.mimeType,
+        content: image.url,
+        contentDigest: node.internal.contentDigest
+      },
+    }))}
+  }
+
+
 };
 
 exports.createPages = ({ graphql, boundActionCreators }) => {

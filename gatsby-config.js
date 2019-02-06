@@ -21,6 +21,9 @@ module.exports = {
     }
   },
   plugins: [
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-graphcms-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
