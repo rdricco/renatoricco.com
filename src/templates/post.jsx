@@ -26,8 +26,8 @@ export default class PostTemplate extends React.Component {
     const { slug } = this.props.pathContext;
     const postNode = this.props.data.portfoliosMarkdown;
     const post = postNode;
-    const author = post.author;
-    const BannerImage = post.bannerImage.handle;
+    // const author = post.author;
+    // const BannerImage = post.bannerImage.handle;
     const images = _.sortBy(post.images, [function (o) { return o.fileName; }]);
     return <Box key={post.id} pb={6}>
         <FadeIn>
