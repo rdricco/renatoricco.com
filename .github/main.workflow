@@ -1,5 +1,3 @@
-<<<<<<< master
-<<<<<<< master
 workflow "Push to Publish" {
   on = "push"
   resolves = ["Gatsby Build"]
@@ -15,28 +13,4 @@ action "Gatsby Build" {
   args = "run build"
   needs = ["Npm install"]
   secrets = ["GITHUB_TOKEN", "GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
-=======
-workflow "Build and Deploy Pages" {
-=======
-workflow "Push to Publish" {
->>>>>>> Update main.workflow
-  on = "push"
-  resolves = ["Gatsby Build"]
-}
-
-action "Npm install" {
-  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
-  args = "install"
-}
-
-action "Gatsby Build" {
-  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
-<<<<<<< master
-  args = "cache clean --force"
->>>>>>> Merge remote-tracking branch 'origin/feature/rebassv2' into feature/rebassv2
-=======
-  args = "run build"
-  needs = ["Npm install"]
-  secrets = ["GITHUB_TOKEN", "GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
->>>>>>> Update main.workflow
 }
