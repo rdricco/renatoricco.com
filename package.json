@@ -75,6 +75,7 @@
     "dev": "npm run develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
+    "build:gh": "gatsby build && gh-pages -d public",
     "build:pp": "gatsby build --prefix-paths",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   }
