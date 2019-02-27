@@ -10,7 +10,7 @@ action "Npm install" {
 
 action "Gatsby Build" {
   uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
-  args = "run build"
+  args = "run build:gh"
   needs = ["Npm install"]
   secrets = ["GITHUB_TOKEN", "GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
 }
