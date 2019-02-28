@@ -31,7 +31,6 @@ action "Publish" {
   needs = ["Build"]
   uses = "mythmon/actions-gh-pages@master"
   secrets = [
-    "ACCESS_TOKEN",
     "PERSONAL_ACCESS_TOKEN",
   ]
   env = {
