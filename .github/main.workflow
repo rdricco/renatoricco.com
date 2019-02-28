@@ -1,15 +1,25 @@
-workflow "Gatsby to GitHub Pages" {
+workflow "Build and Publish" {
   on = "push"
   resolves = ["Publish"]
 }
 
-action "On Master" {
-  uses = "actions/bin/filter@master"
-  args = "branch rebass_past"
+action "Install" {
+  uses = "borales/actions-yarn@master"
+  args = "install --prod"
+}
+
+action "Build" {
+  needs = ["Install"]
+  uses = "borales/actions-yarn@master"
+  args = "build"
 }
 
 action "Publish" {
-  uses = "enriikke/gatsby-gh-pages-action@master"
-  needs = ["On Master"]
-  secrets = ["ACCESS_TOKEN"]
+  needs = ["Build"]
+  uses = "mythmon/actions-gh-pages@master"
+  secrets = [
+    "PERSONAL_ACCESS_TOKEN",
+    "GRAPHCMS_ENDPOINT",
+    "GRAPHCMS_TOKEN",
+  ]
 }
