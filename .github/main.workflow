@@ -29,6 +29,6 @@ action "Publish" {
     "PERSONAL_ACCESS_TOKEN",
   ]
   env = {
-    BUILD_DIR = "public"
+    SOURCE_DIRECTORY = "public"
   }
 }
