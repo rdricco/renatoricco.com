@@ -3,8 +3,14 @@ workflow "Push to Publish" {
   resolves = ["Publish"]
 }
 
+action "On Master" {
+  uses = "actions/bin/filter@master"
+  args = "branch master"
+}
+
 action "Cache" {
   uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
+  needs = ["On Master"]
   args = "cache clean --force"
 }
 
@@ -25,7 +31,6 @@ action "Publish" {
   needs = ["Build"]
   uses = "mythmon/actions-gh-pages@master"
   secrets = [
-    "ACCESS_TOKEN",
     "PERSONAL_ACCESS_TOKEN",
   ]
   env = {
