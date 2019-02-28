@@ -1,15 +1,15 @@
-workflow "Push to Publish" {
+workflow "Gatsby to GitHub Pages" {
   on = "push"
-  resolves = ["enriikke/gatsby-gh-pages-action@master"]
+  resolves = ["Publish"]
 }
 
-action "On rebass_past" {
+action "On Master" {
   uses = "actions/bin/filter@master"
   args = "branch rebass_past"
 }
+
 action "Publish" {
   uses = "enriikke/gatsby-gh-pages-action@master"
-  needs = ["Gatsby Build"]
-  secrets = ["GITHUB_TOKEN", "GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
+  needs = ["On Master"]
+  secrets = ["ACCESS_TOKEN"]
 }
-
