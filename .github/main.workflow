@@ -1,16 +1,31 @@
-workflow "Gatsby to GitHub Pages" {
+workflow "Push to Publish" {
   on = "push"
   resolves = ["Publish"]
 }
 
-action "On rebass_past" {
-  uses = "actions/bin/filter@master"
-  args = "branch rebass_past"
-  secrets = ["ACCESS_TOKEN", "GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN", "PERSONAL_ACCESS_TOKEN"]
+action "Cache" {
+  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
+  args = "cache clean --force"
+}
+
+action "Npm install" {
+  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
+  needs = ["Cache"]
+  args = "install"
+}
+
+action "Build" {
+  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
+  args = "run build"
+  needs = ["Npm install"]
+  secrets = ["GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
 }
 
 action "Publish" {
-  uses = "enriikke/gatsby-gh-pages-action@master"
-  secrets = ["ACCESS_TOKEN"]
-  needs = ["On rebass_past"]
+  needs = ["Build"]
+  uses = "mythmon/actions-gh-pages@master"
+  secrets = [
+    "ACCESS_TOKEN",
+    "PERSONAL_ACCESS_TOKEN",
+  ]
 }
