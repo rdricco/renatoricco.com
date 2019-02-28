@@ -1,16 +1,15 @@
 workflow "Push to Publish" {
   on = "push"
-  resolves = ["Gatsby Build"]
+  resolves = ["enriikke/gatsby-gh-pages-action@master"]
 }
 
-action "Npm install" {
-  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
-  args = "install"
+action "On rebass_past" {
+  uses = "actions/bin/filter@master"
+  args = "branch rebass_past"
 }
-
-action "Gatsby Build" {
-  uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
-  args = "run build:gh"
-  needs = ["Npm install"]
+action "Publish" {
+  uses = "enriikke/gatsby-gh-pages-action@master"
+  needs = ["Gatsby Build"]
   secrets = ["GITHUB_TOKEN", "GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
 }
+
