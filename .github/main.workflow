@@ -3,13 +3,14 @@ workflow "Gatsby to GitHub Pages" {
   resolves = ["Publish"]
 }
 
-action "On Master" {
+action "On rebass_past" {
   uses = "actions/bin/filter@master"
-  args = "branch master"
+  args = "branch rebass_past"
+  secrets = ["ACCESS_TOKEN", "GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN", "PERSONAL_ACCESS_TOKEN"]
 }
 
 action "Publish" {
   uses = "enriikke/gatsby-gh-pages-action@master"
-  needs = ["On Master"]
   secrets = ["ACCESS_TOKEN"]
+  needs = ["On rebass_past"]
 }
