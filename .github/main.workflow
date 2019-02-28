@@ -1,4 +1,4 @@
-workflow "Build and Deploy Pages" {
+workflow "Build and Deploy" {
   on = "push"
   resolves = [
     "Install",
