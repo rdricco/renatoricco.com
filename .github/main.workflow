@@ -24,7 +24,13 @@ action "Build" {
   uses = "actions/npm@3c8332795d5443adc712d30fa147db61fd520b5a"
   args = "run build"
   needs = ["Npm install"]
-  secrets = ["GRAPHCMS_ENDPOINT", "GRAPHCMS_TOKEN"]
+  secrets = [
+    "GRAPHCMS_ENDPOINT",
+    "GRAPHCMS_TOKEN",
+    "HOTJAR_ID",
+    "HOTJAR_SNIPPET_VERSION",
+    "GOOGLEANALYTICS_ID",
+  ]
 }
 
 action "Publish" {
