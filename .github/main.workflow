@@ -35,5 +35,7 @@ action "Publish" {
   ]
   env = {
     SOURCE_DIRECTORY = "public"
+    GIT_USER = "Renato Ricco"
+    GIT_EMAIL = "contato@renatoricco.com"
   }
 }
