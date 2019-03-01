@@ -27,9 +27,9 @@ action "Build" {
   secrets = [
     "GRAPHCMS_ENDPOINT",
     "GRAPHCMS_TOKEN",
-    "HOTJAR_ID",
     "HOTJAR_SNIPPET_VERSION",
     "GOOGLEANALYTICS_ID",
+    "HOTJAR_ID",
   ]
 }
 
