@@ -30,6 +30,12 @@ module.exports = {
           `gatsby-remark-widows`,
           `gatsby-remark-responsive-iframe`,
           {
+            resolve: 'gatsby-plugin-page-transitions',
+            options: {
+              transitionTime: 500
+            }
+          },
+          {
             resolve: "gatsby-remark-external-links",
             options: {
               target: "_self",
