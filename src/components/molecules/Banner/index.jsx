@@ -26,7 +26,7 @@ class BannerSite extends React.Component {
                 Hi, my name is renato ricco.
               </Heading>
               <Subhead fontSize={[4, 4, 5, 6]}>
-                I'm a graphic designer & front-end developer.
+                I'm a Creative Coder.
               </Subhead>
               <Text>
                 I was born in São Paulo, where I currently live. <br />
