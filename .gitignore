@@ -57,10 +57,3 @@ public/
 
 # Bundle stats
 bundle-stats.json
-\.env
-
-\.vscode/launch\.json
-
-yarn\.lock
-
-package-lock\.json
