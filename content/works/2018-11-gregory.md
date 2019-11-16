@@ -2,8 +2,8 @@
 title: Gregory
 slug: gregory
 date: '2018-01-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_gregory.png
+cover: /assets/cover_gregory.png
 category: Ecommerce
 tags:
   - VTex
@@ -11,10 +11,5 @@ tags:
   - CSS
   - HTML
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
-
-![](/assets/grupoavenida_02.jpg)
-
-![](/assets/grupoavenida_03.jpg)
+![](/assets/gregory_01.jpg)

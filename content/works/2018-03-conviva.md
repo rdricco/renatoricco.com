@@ -2,17 +2,21 @@
 title: Conviva
 slug: conviva
 date: '2018-03-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_conviva.png
+cover: /assets/cover_conviva.png
 category: Institutional Site
 tags:
   - Web
   - UI/UX
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/conviva_01.png)
 
-![](/assets/grupoavenida_02.jpg)
+![](/assets/conviva_02.png)
 
-![](/assets/grupoavenida_03.jpg)
+![](/assets/conviva_03.png)
+
+![](/assets/conviva_04.png)
+
+![](/assets/conviva_05.png)
+

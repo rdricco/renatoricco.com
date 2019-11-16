@@ -2,18 +2,19 @@
 title: Iandi - Gatsby Starter Kit
 slug: iandi-gatsby
 date: '2018-04-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_gatsby.png
+cover: /assets/cover_gatsby.png
 category: Development Starter Kit
 tags:
   - React
   - GatsbyJS
   - Styled-Components
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/Iandi_00.png)
 
-![](/assets/grupoavenida_02.jpg)
+![](/assets/Iandi_01.png)
 
-![](/assets/grupoavenida_03.jpg)
+![](/assets/Iandi_02.png)
+
+![](/assets/Iandi_03.png)

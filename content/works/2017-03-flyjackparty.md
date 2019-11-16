@@ -2,17 +2,16 @@
 title: Flyjack - Release Party
 slug: flyjack-release-party
 date: '2017-03-03'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_flyjack_flyer.png
+cover: /assets/cover_flyjack_flyer.png
 category: Design
 tags:
   - Print
   - Editorial Design
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/flyjack_flyer_00.png)
 
-![](/assets/grupoavenida_02.jpg)
+![](/assets/flyjack_flyer_01.png)
 
-![](/assets/grupoavenida_03.jpg)
+![](/assets/flyjack_flyer_02.png)

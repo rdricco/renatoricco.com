@@ -2,17 +2,14 @@
 title: Flyjack - Press Release
 slug: flyjack-press-release
 date: '2017-03-02'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_flyjack_pressrelease.png
+cover: /assets/cover_flyjack_pressrelease.png
 category: Design
 tags:
   - Posters
   - Flyers
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/flyjack_pressrelease_00.png)
 
-![](/assets/grupoavenida_02.jpg)
-
-![](/assets/grupoavenida_03.jpg)
+![](/assets/flyjack_pressrelease_01.png)

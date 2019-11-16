@@ -2,8 +2,8 @@
 title: Fiat Fashion
 slug: fiar-fashion
 date: '2018-01-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_fiatfashion.png
+cover: /assets/cover_fiatfashion.png
 category: Ecommerce
 tags:
   - VTex
@@ -11,10 +11,7 @@ tags:
   - CSS
   - HTML
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/fiatfashion_01.jpg)
 
-![](/assets/grupoavenida_02.jpg)
-
-![](/assets/grupoavenida_03.jpg)
+![](/assets/fiatfashion_02.jpg)

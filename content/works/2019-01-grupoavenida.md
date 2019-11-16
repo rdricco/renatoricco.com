@@ -2,8 +2,8 @@
 title: Grupo Avenida
 slug: grupo-avenida
 date: '2019-01-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_avenida.png
+cover: /assets/cover_avenida.png
 category: Ecommerce
 tags:
   - VTex
@@ -11,7 +11,6 @@ tags:
   - CSS
   - HTML
 ---
-Implementação ecommerce VTEX
 
 ![](/assets/grupoavenida_01.jpg)
 

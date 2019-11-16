@@ -2,18 +2,24 @@
 title: Flyjack - New Day
 slug: flyjack-new-day
 date: '2017-03-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_flyjack.png
+cover: /assets/cover_flyjack.png
 category: Design
 tags:
   - Package Design
   - Art Direction
   - Logo Design
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/flyjack_00.png)
 
-![](/assets/grupoavenida_02.jpg)
+![](/assets/flyjack_01.png)
 
-![](/assets/grupoavenida_03.jpg)
+![](/assets/flyjack_02.png)
+
+![](/assets/flyjack_04.png)
+
+![](/assets/flyjack_05.png)
+
+![](/assets/flyjack_all.png)
+

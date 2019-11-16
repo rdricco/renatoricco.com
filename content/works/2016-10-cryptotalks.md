@@ -2,16 +2,19 @@
 title: Crypto - Privacy Talks
 slug: crypto-talks
 date: '2016-11-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_crypto.png
+cover: /assets/cover_crypto.png
 category: Design
 tags:
   - Logo Design
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/crypto_00.png)
 
-![](/assets/grupoavenida_02.jpg)
+![](/assets/crypto_02.png)
 
-![](/assets/grupoavenida_03.jpg)
+![](/assets/crypto_03.png)
+
+![](/assets/crypto_04.png)
+
+![](/assets/crypto_05.png)

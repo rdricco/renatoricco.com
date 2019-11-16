@@ -2,18 +2,13 @@
 title: Monks In Dunks Podcast
 slug: monks-in-dunks-podcast
 date: '2015-05-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_monks.png
+cover: /assets/cover_monks.png
 category: Design
 tags:
   - Illustration
   - Cover Art
   - Web
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
-
-![](/assets/grupoavenida_02.jpg)
-
-![](/assets/grupoavenida_03.jpg)
+![](/assets/monks_02.png)

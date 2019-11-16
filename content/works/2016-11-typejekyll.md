@@ -2,8 +2,8 @@
 title: Typejekyll - Jekyll Theme
 slug: typejekyll-theme
 date: '2017-10-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_jekyll.png
+cover: /assets/cover_jekyll.png
 category: Development Starter Kit
 tags:
   - Web
@@ -11,10 +11,12 @@ tags:
   - Headless CMS
   - Jekyll
 ---
-Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/typejekyll_00.jpg)
 
-![](/assets/grupoavenida_02.jpg)
+![](/assets/typejekyll_01.jpg)
 
-![](/assets/grupoavenida_03.jpg)
+![](/assets/typejekyll_02.jpg)
+
+![](/assets/typejekyll_03.jpg)
+

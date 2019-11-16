@@ -2,8 +2,8 @@
 title: Broto de Primavera
 slug: broto-de-primavera
 date: '2016-03-01'
-preview: /assets/0001_cover_avenida.png
-cover: /assets/0001_cover_avenida.png
+preview: /assets/cover_broto.png
+cover: /assets/cover_broto.png
 category: Design
 tags:
   - Visual Style Guide
@@ -12,8 +12,18 @@ tags:
 
 Implementação ecommerce VTEX
 
-![](/assets/grupoavenida_01.jpg)
+![](/assets/broto_00.png)
 
-![](/assets/grupoavenida_02.jpg)
+![](/assets/broto_01.png)
 
-![](/assets/grupoavenida_03.jpg)
+![](/assets/broto_02.png)
+
+![](/assets/broto_03.png)
+
+![](/assets/broto_05.png)
+
+![](/assets/broto_05b.png)
+
+![](/assets/broto_05c.png)
+
+![](/assets/broto_06.png)
