@@ -1,13 +1,15 @@
 ---
 title: Marcia Mello
-date: '2017-01-01'
-cover: /assets/streamlines1573836155492.svg
+date: '2019-02-01'
+cover: /assets/lines.svg
+preview: /assets/lines.svg
 slug: marcia-mello
-category: tech
+category: Ecommerce
 tags:
-  - programming
-  - stuff
-  - other
+  - VTex
+  - Javascript
+  - CSS
+  - HTML
 ---
 # Quanto et ius coniunctis urbes
 

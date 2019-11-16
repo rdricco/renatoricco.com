@@ -1,16 +1,15 @@
 ---
-title: Grupo Avenida
-slug: grupo-avenida
-date: 2019-01-01T21:21:00.000Z
+title: Broto de Primavera
+slug: broto-de-primavera
+date: '2016-03-01'
 preview: /assets/0001_cover_avenida.png
 cover: /assets/0001_cover_avenida.png
-category: Ecommerce
+category: Design
 tags:
-  - VTex
-  - Javascript
-  - CSS
-  - HTML
+  - Visual Style Guide
+  - Logo Design
 ---
+
 Implementação ecommerce VTEX
 
 ![](/assets/grupoavenida_01.jpg)
