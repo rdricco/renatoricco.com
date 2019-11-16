@@ -39,12 +39,12 @@ module.exports = {
 				path: `${__dirname}/content/works`
 			}
 		},
-		{
-			resolve: `gatsby-plugin-page-creator`,
-			options: {
-				path: `${__dirname}/content/pages`
-			}
-		},
+		// {
+		// 	resolve: `gatsby-plugin-page-creator`,
+		// 	options: {
+		// 		path: `${__dirname}/content/pages`
+		// 	}
+		// },
 		{
 			resolve: 'gatsby-transformer-remark',
 			options: {
