@@ -13,8 +13,6 @@ tags:
 
 ## Sedisti civiliter
 
-![](/assets/32944461_10155362692015736_5314731654651052032_n.jpg)
-
 ![](/assets/streamlines1573836155492.svg)
 
 Lorem **markdownum** Ixione palus **semper peritura barbaque** in aureus
@@ -36,6 +34,8 @@ Peleus Aeneadae audacia cruentatis turbae Procrin dirum bacae, accede.
     python.raw_backlink = rfid_load - 4;
     kibibyte *= cdnThumbnailUri;
 ```
+
+
 
 ## Fortis dextrae humo limina Tempus singultibus illa
 
@@ -60,6 +60,8 @@ ergo firmat albentia verba casuque.
     buffer_apple_hdmi += viralSync + internetDigital / tweak_perl_expansion(
             masterNullFloating + vdu, software_play);
 ```
+
+![](/assets/reallybigsky.jpg)
 
 ## Nati expugnacior nympha milia nascuntur amico
 
