@@ -13,7 +13,7 @@ tags:
 
 ## Sedisti civiliter
 
-![](/assets/streamlines1573836155492.svg)
+![](/assets/lines.svg)
 
 Lorem **markdownum** Ixione palus **semper peritura barbaque** in aureus
 obliquum erigitur gemmae utque cur natus, aera supplice de nudae. Manus
