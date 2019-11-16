@@ -1,12 +1,13 @@
 ---
-title: "Marcia Mello"
-cover: "8.jpg"
-date: "2017-01-01"
-category: "tech"
+title: Marcia Mello
+date: '2017-01-01'
+cover: /assets/streamlines1573836155492.svg
+slug: marcia-mello
+category: tech
 tags:
-    - programming
-    - stuff
-    - other
+  - programming
+  - stuff
+  - other
 ---
 
 # Quanto et ius coniunctis urbes
