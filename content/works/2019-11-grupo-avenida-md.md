@@ -13,8 +13,6 @@ tags:
 ---
 Implementação ecommerce VTEX
 
-
-
 ![](/assets/grupoavenida_01.jpg)
 
 ![](/assets/grupoavenida_02.jpg)
