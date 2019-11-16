@@ -29,7 +29,20 @@ module.exports = {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'posts',
-				path: `${__dirname}/content/`
+				path: `${__dirname}/content/blog`
+			}
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'works',
+				path: `${__dirname}/content/works`
+			}
+		},
+		{
+			resolve: `gatsby-plugin-page-creator`,
+			options: {
+				path: `${__dirname}/content/pages`
 			}
 		},
 		{
@@ -126,7 +139,7 @@ module.exports = {
 				modulePath: path.resolve('src/netlifycms/index.js'), // default: undefined
 				enableIdentityWidget: true,
 				publicPath: 'admin',
-				htmlTitle: 'Content Manager',
+				htmlTitle: 'CMS',
 				includeRobots: false
 			}
 		},
