@@ -25,13 +25,13 @@ module.exports = {
 				path: `${__dirname}/static/`
 			}
 		},
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				name: 'posts',
-				path: `${__dirname}/content/blog`
-			}
-		},
+		// {
+		// 	resolve: 'gatsby-source-filesystem',
+		// 	options: {
+		// 		name: 'posts',
+		// 		path: `${__dirname}/content/blog`
+		// 	}
+		// },
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
