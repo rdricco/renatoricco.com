@@ -12,21 +12,52 @@ import './index.css';
 export default class MainLayout extends React.Component {
 	render() {
 		const { children } = this.props;
+		const LayoutContainer = styled(Box)`
+		height: 100%;
+    	width: 100%;
+		padding: 5px;
+   		 `;
 		const AppContainer = styled(Box)`
-      min-height: 100vh;
-      `;
+		min-height: 100%;
+		a,
+		a:visited,
+		a:active {
+			color: inherit;
+			text-decoration-color: yellow;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+			text-decoration-color: yellow;
+		}
+		div,
+		button {
+			font-family: "Anonymous Pro";
+		}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: "Poppins";
+		}
+
+		`;
 		const ContentContainer = styled(Box)`
         min-width: 100%;
-        max-width: 100vw;
+        max-width: 100%;
         min-height: 100%;
-        max-height: 100%;
+        max-height: 100%; 
         display: flex;
         flex-direction: column;
-        background-color: lightgray;
-    `;
+		background-color: rgb(245, 242, 237);
+
+   		 `;
 
 		return (
-			<div className='layout-container'>
+			<LayoutContainer className='layout-container'>
 				<Helmet>
 					<meta name='description' content={config.siteDescription} />
 					<html lang='en' />
@@ -36,7 +67,7 @@ export default class MainLayout extends React.Component {
 					<ContentContainer>{children}</ContentContainer>
 					<Footer />
 				</AppContainer>
-			</div>
+			</LayoutContainer>
 		);
 	}
 }

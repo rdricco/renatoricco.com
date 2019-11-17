@@ -8,16 +8,25 @@ import { Flex, Box, Heading, Text, Link } from 'rebass/styled-components';
 import ThemeProvider from 'styled-components';
 
 const MainContainer = styled(Flex)`
-	max-width: 1300px;
+color: white;
+	width: 100%;
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
 	align-items: center;
-	min-height:80vh;
+	min-height:84vh;
+	margin-left: auto;
+	margin-right: auto;
+	    background: linear-gradient(to right, rgb(242, 153, 74), rgb(242, 201, 76));
+
 `;
 const BoxContainer = styled(Box)`
 	max-width: 1180px;
-	margin-left: auto;
+	width: 100%;
+	/* margin-left: auto; */
+	a{
+		margin-left: .5em;
+	}
 `;
 class IndexPage extends Component {
 	render() {
@@ -54,8 +63,9 @@ class IndexPage extends Component {
 							]}
 							color='primary'>
 							I was born in São Paulo, where I currently live. <br />
-							Do you have a project we can work together? Nice, feel free to
-							<Link href='mailto:contact@renatoricco.com'>contact me.</Link>
+							Do you have a project we can work together? <br />
+							Nice, feel free to
+							<Link href='mailto:contact@renatoricco.com'>contact me</Link>.
 						</Text>
 					</BoxContainer>
 				</MainContainer>

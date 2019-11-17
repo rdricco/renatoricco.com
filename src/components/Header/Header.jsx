@@ -7,14 +7,15 @@ import Headroom from 'react-headroom';
 import { TiHome } from 'react-icons/ti';
 
 const TopNavigation = styled(Box)`
+display: flex;
   z-index: 999;
   background-color: white;
   max-width: 100%;
-  min-height: 10vh;
+  min-height: 7vh;
   transition: all 0.5s ease-in;
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.32);
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   a,
   a:visited,
   a:active {
@@ -27,10 +28,17 @@ const TopNavigation = styled(Box)`
 `;
 
 const ContainerBox = styled(Box)`
-  transition: all 0.5s ease-in;
+  	transition: all 0.5s ease-in;
+  	margin: auto;
+	width: 100%;
 	/* max-width: 1180px; */
-	min-height: 35px;
+	/* min-height: 35px; */
 
+`;
+const LinkBox = styled(Box)`
+	  transition: all 0.5s ease-in;
+	  display: flex;
+    align-items: center;
 `;
 const ContainerFlex = styled(Flex)`
   transition: all 0.5s ease-in;
@@ -45,14 +53,14 @@ const Header = (props) => (
 				<ContainerFlex mx='auto'>
 					<Box mr='auto' className='userLinks-container'>
 						<Link to='/'>
-							<TiHome />
+							<TiHome size='30px' />
 						</Link>
 					</Box>
-					<Box ml='auto' className='notice-container'>
+					<LinkBox ml='auto' className='notice-container'>
 						<Link to='/works/'>
-							<Text type='button'>Works</Text>
+							<Text fontSize={2}>Works</Text>
 						</Link>
-					</Box>
+					</LinkBox>
 				</ContainerFlex>
 			</ContainerBox>
 		</TopNavigation>

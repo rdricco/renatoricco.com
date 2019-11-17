@@ -2,20 +2,56 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Flex, Box, Heading, Text, Card, Image } from 'rebass/styled-components';
+import PostTags from '../PostTags/PostTags';
 
 const BoxContainer = styled(Box)`
 max-width:1300px;
-background-color: pink;
+h1{
+	margin: 50px 0 20px 0;
+}
 `;
 const Tags = styled(Text)`
 margin-right:.5em;
+margin-left:0;
 text-decoration: none;
+  font-size: 11px;
+  padding: 5px 10px ;
+  color: white;
+  background-color: black;
+  transition: all .3s;
+  border-radius: 4px;
+  :hover{
+  color: black;
+  background-color: yellow;
+  cursor: pointer;
 `;
 const FlexContainer = styled(Flex)`
-background-color: green;
-img{
-	max-width: 100%;
+margin: 0;
+padding: 0px;
+a,
+a:visited,
+a:active,
+a:hover {
+	color: inherit;
+	text-decoration-color: none;
+	text-decoration: none;
 }
+`;
+
+const CardContainer = styled(Card)`
+padding: 0px;
+box-shadow: grey 0.8px 0.9px 3px;
+background: white;
+transition: box-shadow 0.5s ease-out 0s;
+border-radius: 4px;
+:hover{
+	box-shadow: grey 1px 8px 20px;
+	transition: all 0.3s ease-in 0s;
+	transform: translateY(-1px);
+}
+`;
+const TextContainer = styled(Box)`
+padding: 10px;
 `;
 
 export default class PostListing extends React.Component {
@@ -50,30 +86,34 @@ export default class PostListing extends React.Component {
 					color='primary'>
 					Featured Works
 				</Heading>
-				<FlexContainer flexWrap='wrap' px={2}>
+				<FlexContainer flexWrap='wrap' px={2} mx={0}>
 					{/* Your post list here. */
 					postList.map((post) => (
-						<Card px={1} width={1 / 3} key={post.title}>
+						<CardContainer px={1} width={1 / 4} key={post.title}>
 							<Link to={post.path}>
 								<Image src={post.preview} />
-								<Heading
-									as='h2'
-									fontSize={[
-										2,
-										2,
-										3
-									]}
-									color='primary'>
-									{post.title}
-								</Heading>
+							</Link>
+							<TextContainer>
+								<Link to={post.path}>
+									<Heading
+										as='h2'
+										fontSize={[
+											2,
+											2,
+											3
+										]}
+										color='primary'>
+										{post.title}
+									</Heading>
+								</Link>
 								<Text>{post.date}</Text>
 								<Flex>
 									{post.tags.map(function(tag) {
 										return <Tags>{tag}</Tags>;
 									})}
 								</Flex>
-							</Link>
-						</Card>
+							</TextContainer>
+						</CardContainer>
 					))}
 				</FlexContainer>
 			</BoxContainer>

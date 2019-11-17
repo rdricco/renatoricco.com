@@ -19,10 +19,17 @@ const ContainerFooter = styled(Box)`
 	box-shadow: 0px -3px 15px 0px rgba(0, 0, 0, 0.32);
 	  padding-top: 15px;
   padding-bottom: 15px;
+  display: flex;
+  width: 100%;
+    align-items: center;
 `;
 const ContainerFlex = styled(Flex)`
+	  width: 100%;
 	max-width: 1300px;
 	margin-left: auto;
+`;
+const ContainerLink = styled(Link)`
+	margin-right: 5px;
 `;
 export default class Footer extends Component {
 	render() {
@@ -30,18 +37,15 @@ export default class Footer extends Component {
 			<ContainerFooter className='footer'>
 				<ContainerFlex mx='auto'>
 					<Box mr='auto' className='userLinks-container'>
-						<Link>
-							<TiSocialFacebook />
-						</Link>
-						<Link>
-							<FaLinkedin />
-						</Link>
-						<Link>
-							<FaGithub />
-						</Link>
+						<ContainerLink href='https://www.linkedin.com/in/renatoricco/'>
+							<FaLinkedin size='22px' />
+						</ContainerLink>
+						<ContainerLink href='https://github.com/rdricco'>
+							<FaGithub size='22px' />
+						</ContainerLink>
 					</Box>
 					<Box ml='auto' className='notice-container'>
-						<Text>Copyright 2019. renato ricco all rights reserved.</Text>
+						<Text fontSize={2}>Copyright 2019. renato ricco all rights reserved.</Text>
 					</Box>
 				</ContainerFlex>
 			</ContainerFooter>

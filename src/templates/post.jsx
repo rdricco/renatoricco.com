@@ -18,6 +18,8 @@ const ContainerBox = styled(Box)`
 	max-width: 1300px;
 	img{
 		max-width: 100%;
+		box-shadow: grey 0.8px 0.9px 3px;
+
 	}
 `;
 const ContainerFlex = styled(Flex)`
@@ -49,13 +51,13 @@ export default class PostTemplate extends React.Component {
 					<ContainerBox>
 						<h1>{post.title}</h1>
 						<Text>{post.date}</Text>
-						{post.tags.map(function(tag) {
+						{/* {post.tags.map(function(tag) {
 							return <Text>{tag}</Text>;
-						})}
-						<div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+						})} */}
 						<ContainerTags className='post-meta'>
 							<PostTags tags={post.tags} />
 						</ContainerTags>
+						<div dangerouslySetInnerHTML={{ __html: postNode.html }} />
 					</ContainerBox>
 				</ContainerFlex>
 			</Layout>
