@@ -61,7 +61,7 @@ export const listingQuery = graphql`
 				node {
 					fields {
 						slug
-						date
+						date(formatString: "MM/YYYY")
 					}
 					excerpt
 					timeToRead

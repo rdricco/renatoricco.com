@@ -15,7 +15,7 @@ import styled from 'styled-components';
 import { Flex, Box, Heading, Text, Button, Image, Card } from 'rebass';
 
 const ContainerBox = styled(Box)`
-	max-width: 1180px;
+	max-width: 1300px;
 	img{
 		max-width: 100%;
 	}
@@ -44,14 +44,18 @@ export default class PostTemplate extends React.Component {
 					<SEO postPath={slug} postNode={postNode} postSEO />
 					<ContainerBox>
 						<h1>{post.title}</h1>
+						<Text>{post.date}</Text>
+						{post.tags.map(function(tag) {
+							return <Text>{tag}</Text>;
+						})}
 						<div dangerouslySetInnerHTML={{ __html: postNode.html }} />
 						<div className='post-meta'>
 							<PostTags tags={post.tags} />
 							<SocialLinks postPath={slug} postNode={postNode} />
 						</div>
-						<UserInfo config={config} />
-						<Disqus postNode={postNode} />
-						<Footer config={config} />
+						{/* <UserInfo config={config} /> */}
+						{/* <Disqus postNode={postNode} /> */}
+						{/* <Footer config={config} /> */}
 					</ContainerBox>
 				</ContainerFlex>
 			</Layout>
@@ -69,13 +73,13 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				cover
-				date
+				date(formatString: "MM/YYYY")
 				category
 				tags
 			}
 			fields {
 				slug
-				date
+				date(formatString: "MM/YYYY")
 			}
 		}
 	}
