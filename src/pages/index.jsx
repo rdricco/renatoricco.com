@@ -4,7 +4,8 @@ import Layout from '../layout';
 import About from '../components/About/About';
 import config from '../../data/SiteConfig';
 import styled from 'styled-components';
-import { Flex, Box, Heading, Text, Link } from 'rebass';
+import { Flex, Box, Heading, Text, Link } from 'rebass/styled-components';
+import ThemeProvider from 'styled-components';
 
 const MainContainer = styled(Flex)`
 	max-width: 1300px;

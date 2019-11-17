@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { Flex, Box, Heading, Text, Card, Image } from 'rebass';
+import { Flex, Box, Heading, Text, Card, Image } from 'rebass/styled-components';
 
 const BoxContainer = styled(Box)`
 max-width:1300px;
 background-color: pink;
-img{
-	max-width: 640px;
-}
+`;
+const Tags = styled(Text)`
+margin-right:.5em;
+text-decoration: none;
 `;
 const FlexContainer = styled(Flex)`
-width:100%;
-background-color: gray;
+background-color: green;
 img{
-	max-width: 640px;
+	max-width: 100%;
 }
 `;
 
-class PostListing extends React.Component {
+export default class PostListing extends React.Component {
 	getPostList() {
 		const postList = [];
 		this.props.postEdges.forEach((postEdge) => {
@@ -40,45 +40,43 @@ class PostListing extends React.Component {
 		const postList = this.getPostList();
 		return (
 			<BoxContainer>
-				<BoxContainer>
-					<Heading
-						as='h1'
-						fontSize={[
-							3,
-							4,
-							5
-						]}
-						color='primary'>
-						Featured Works
-					</Heading>
-					<Flex flexWrap='wrap' px={2}>
-						{/* Your post list here. */
-						postList.map((post) => (
-							<Link to={post.path} key={post.title}>
-								<Card px={1} width={1 / 3}>
-									<Image src={post.preview} />
-									<Heading
-										as='h2'
-										fontSize={[
-											2,
-											2,
-											3
-										]}
-										color='primary'>
-										{post.title}
-									</Heading>
-									<Text>{post.date}</Text>
+				<Heading
+					as='h1'
+					fontSize={[
+						3,
+						4,
+						5
+					]}
+					color='primary'>
+					Featured Works
+				</Heading>
+				<FlexContainer flexWrap='wrap' px={2}>
+					{/* Your post list here. */
+					postList.map((post) => (
+						<Card px={1} width={1 / 3} key={post.title}>
+							<Link to={post.path}>
+								<Image src={post.preview} />
+								<Heading
+									as='h2'
+									fontSize={[
+										2,
+										2,
+										3
+									]}
+									color='primary'>
+									{post.title}
+								</Heading>
+								<Text>{post.date}</Text>
+								<Flex>
 									{post.tags.map(function(tag) {
-										return <Text>{tag}</Text>;
+										return <Tags>{tag}</Tags>;
 									})}
-								</Card>
+								</Flex>
 							</Link>
-						))}
-					</Flex>
-				</BoxContainer>
+						</Card>
+					))}
+				</FlexContainer>
 			</BoxContainer>
 		);
 	}
 }
-
-export default PostListing;

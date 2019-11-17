@@ -7,7 +7,7 @@ import SEO from '../components/SEO/SEO';
 import config from '../../data/SiteConfig';
 import './listing.css';
 
-class Listing extends React.Component {
+export default class Listing extends React.Component {
 	renderPaging() {
 		const { currentPageNum, pageCount } = this.props.pageContext;
 		const prevPage = currentPageNum - 1 === 1 ? '/works/' : `/works/${currentPageNum - 1}/`;
@@ -50,8 +50,6 @@ class Listing extends React.Component {
 		);
 	}
 }
-
-export default Listing;
 
 /* eslint no-undef: "off" */
 export const listingQuery = graphql`

@@ -12,7 +12,7 @@ import config from '../../data/SiteConfig';
 import './b16-tomorrow-dark.css';
 import './post.css';
 import styled from 'styled-components';
-import { Flex, Box, Heading, Text, Button, Image, Card } from 'rebass';
+import { Flex, Box, Heading, Text, Button, Image, Card } from 'rebass/styled-components';
 
 const ContainerBox = styled(Box)`
 	max-width: 1300px;
@@ -22,6 +22,10 @@ const ContainerBox = styled(Box)`
 `;
 const ContainerFlex = styled(Flex)`
 justify-content: center;
+`;
+const ContainerTags = styled(Box)`
+justify-content: center;
+margin-bottom: 30px;
 `;
 export default class PostTemplate extends React.Component {
 	render() {
@@ -49,13 +53,9 @@ export default class PostTemplate extends React.Component {
 							return <Text>{tag}</Text>;
 						})}
 						<div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-						<div className='post-meta'>
+						<ContainerTags className='post-meta'>
 							<PostTags tags={post.tags} />
-							<SocialLinks postPath={slug} postNode={postNode} />
-						</div>
-						{/* <UserInfo config={config} /> */}
-						{/* <Disqus postNode={postNode} /> */}
-						{/* <Footer config={config} /> */}
+						</ContainerTags>
 					</ContainerBox>
 				</ContainerFlex>
 			</Layout>
