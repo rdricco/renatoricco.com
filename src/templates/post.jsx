@@ -11,7 +11,18 @@ import Footer from '../components/Footer';
 import config from '../../data/SiteConfig';
 import './b16-tomorrow-dark.css';
 import './post.css';
+import styled from 'styled-components';
+import { Flex, Box, Heading, Text, Button, Image, Card } from 'rebass';
 
+const ContainerBox = styled(Box)`
+	max-width: 1180px;
+	img{
+		max-width: 100%;
+	}
+`;
+const ContainerFlex = styled(Flex)`
+justify-content: center;
+`;
 export default class PostTemplate extends React.Component {
 	render() {
 		const { data, pageContext } = this.props;
@@ -26,12 +37,12 @@ export default class PostTemplate extends React.Component {
 		}
 		return (
 			<Layout>
-				<div>
+				<ContainerFlex>
 					<Helmet>
 						<title>{`${post.title} | ${config.siteTitle}`}</title>
 					</Helmet>
 					<SEO postPath={slug} postNode={postNode} postSEO />
-					<div>
+					<ContainerBox>
 						<h1>{post.title}</h1>
 						<div dangerouslySetInnerHTML={{ __html: postNode.html }} />
 						<div className='post-meta'>
@@ -41,8 +52,8 @@ export default class PostTemplate extends React.Component {
 						<UserInfo config={config} />
 						<Disqus postNode={postNode} />
 						<Footer config={config} />
-					</div>
-				</div>
+					</ContainerBox>
+				</ContainerFlex>
 			</Layout>
 		);
 	}

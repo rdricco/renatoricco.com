@@ -69,6 +69,7 @@ export const listingQuery = graphql`
 						title
 						tags
 						cover
+						preview
 						date
 					}
 				}

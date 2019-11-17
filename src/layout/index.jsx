@@ -9,7 +9,10 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 // import './index.css';
-
+const ContainerBox = styled(Box)`
+    max-width: 1180px;
+    margin-left: auto;
+`;
 const FlexLeft = styled(Flex)`
 	display: flex;
 	flex-direction: row;
