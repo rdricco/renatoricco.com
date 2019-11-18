@@ -7,9 +7,17 @@ import { Flex, Box } from "rebass/styled-components";
 import config from "../../data/SiteConfig";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Navbar from "../components/navbar/Navbar";
 import "./index.css";
 
 export default class MainLayout extends React.Component {
+  state = {
+    navbarOpen: false
+  };
+
+  handleNavbar = () => {
+    this.setState({ navbarOpen: !this.state.navbarOpen });
+  };
   render() {
     const { children } = this.props;
     const LayoutContainer = styled(Box)`
@@ -61,7 +69,11 @@ export default class MainLayout extends React.Component {
           <html lang='en' />
         </Helmet>
         <AppContainer className='app-container'>
-          <Header className='header-container' />
+          <Navbar
+            navbarState={this.state.navbarOpen}
+            handleNavbar={this.handleNavbar}
+          />
+          {/* <Header className='header-container' /> */}
           <ContentContainer className='content-container'>
             {children}
           </ContentContainer>
