@@ -1,13 +1,13 @@
-locale: 'pt-br'
+locale: "pt-br"
 backend:
   name: github # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
   branch: feature/gatsbyv2 # Branch to update
   repo: rdricco/renatoricco.com # Repo for pushing new commits. Make sure to replace with your repo!
 
-publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: assets
-logo_url: https://elated-wozniak-10af2e.netlify.com/assets/reallybigsky.jpg
+# publish_mode: editorial_workflow
+# logo_url: https://elated-wozniak-10af2e.netlify.com/assets/reallybigsky.jpg
 
 site_url: https://elated-wozniak-10af2e.netlify.com/
 display_url: https://elated-wozniak-10af2e.netlify.com/
