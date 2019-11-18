@@ -46,7 +46,7 @@ export default class Footer extends Component {
             </ContainerLink>
           </Box>
           <Box ml='auto' className='notice-container'>
-            <Text fontSize={2}>
+            <Text fontSize={[1, 2]} color='alternative'>
               Copyright 2019. renato ricco all rights reserved.
             </Text>
           </Box>
