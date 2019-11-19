@@ -19,6 +19,7 @@ const ContainerFooter = styled(Box)`
   min-height: 8vh;
   box-shadow: 0px -3px 15px 0px rgba(0, 0, 0, 0.32);
   padding-top: 15px;
+	z-index: 999;
   padding-bottom: 15px;
   display: flex;
   width: 100%;
