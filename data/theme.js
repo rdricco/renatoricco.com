@@ -60,6 +60,11 @@ export default {
 		slow: 'all 0.7s ease-in-out'
 	},
 	variants: {},
+	zIndex: {
+		top: '100',
+		middle: '10',
+		bottom: '1'
+	},
 	text: {},
 	buttons: {
 		primary: {

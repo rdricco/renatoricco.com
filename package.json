@@ -33,6 +33,7 @@
         "gatsby-plugin-styled-components": "^3.1.12",
         "gatsby-plugin-svgr": "^2.0.2",
         "gatsby-plugin-theme-ui": "^0.2.43",
+        "gatsby-plugin-transition-link": "^1.16.2",
         "gatsby-plugin-twitter": "^2.1.9",
         "gatsby-remark-autolink-headers": "^2.1.17",
         "gatsby-remark-copy-images": "^0.2.1",
@@ -47,6 +48,7 @@
         "gatsby-source-filesystem": "^2.1.28",
         "gatsby-transformer-remark": "^2.6.34",
         "gatsby-transformer-sharp": "^2.2.19",
+        "gsap": "^3.0.1",
         "lodash": "^4.17.15",
         "lodash-webpack-plugin": "^0.11.5",
         "moment": "^2.24.0",
@@ -70,6 +72,7 @@
         "styled-components": "^4.4.1",
         "styled-form-component": "^4.0.0",
         "styled-system": "^5.1.2",
+        "styled-theming": "^2.2.0",
         "theme-ui": "^0.2.49",
         "url-join": "^4.0.0"
     },

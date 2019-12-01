@@ -7,8 +7,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 export default class Footer extends Component {
 	render() {
 		return (
-			<ContainerFooter className='footer'>
-				<ContainerFlex mx='auto'>
+			<ContainerFooter width={1} p={'15px'} className='footer'>
+				<ContainerFlex mx='auto' w={1}>
 					<Box mr='auto' className='userLinks-container'>
 						<ContainerLink href='https://www.linkedin.com/in/renatoricco/'>
 							<FaLinkedin size={this.props.iconSize} />
@@ -22,8 +22,7 @@ export default class Footer extends Component {
 							fontSize={[
 								1,
 								2
-							]}
-							color='alternative'>
+							]}>
 							{this.props.copyrightText}
 						</Text>
 					</Box>
@@ -43,14 +42,12 @@ Footer.defaultProps = {
 	iconSize: '22px'
 };
 
-const ContainerFooter = styled(Box)`
-  display: flex;
+const ContainerFooter = styled(Flex)`
   align-items: center;
-  width: 100%;
-  min-height: 8vh;
-  padding: 15px;
+  min-height: 9vh;
+  background-color: ${(props) => props.theme.colors.maincolor};
   box-shadow: ${(props) => props.theme.shadows.down};
-  z-index: 999;
+  z-index: ${(props) => props.theme.zIndex.top};
   a,
   a:visited,
   a:active {
@@ -59,14 +56,22 @@ const ContainerFooter = styled(Box)`
     text-decoration: none;
   }
   a:hover {
-	text-decoration: underline;
 	color: ${(props) => props.theme.colors.secondaryColor}
   }
 `;
 const ContainerFlex = styled(Flex)`
   width: 100%;
   max-width: 1300px;
-  margin-left: auto;
+	@media (max-width: 600px) {
+	flex-direction: column;
+	justify-content: center;
+	.userLinks-container,
+	.notice-container{
+		justify-content: center;
+		width: 100%;
+		display: flex;
+	}
+	}
 `;
 const ContainerLink = styled(Link)`
   margin-right: 5px;

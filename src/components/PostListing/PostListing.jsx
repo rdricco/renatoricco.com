@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Flex, Box, Heading, Text, Card, Image, Tiles } from 'rebass/styled-components';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
 import PostTags from '../PostTags/PostTags';
 
 export default class PostListing extends React.Component {
@@ -52,11 +54,12 @@ export default class PostListing extends React.Component {
 								0.24
 							]}
 							key={post.title}>
-							<Link to={post.path}>
+							<AniLink cover bg='rebeccapurple' to={post.path}>
 								<Image src={post.preview} />
-							</Link>
+							</AniLink>
+
 							<TextContainer>
-								<Link to={post.path}>
+								<AniLink cover bg='rebeccapurple' to={post.path}>
 									<Heading
 										as='h2'
 										fontSize={[
@@ -67,7 +70,8 @@ export default class PostListing extends React.Component {
 										color='primary'>
 										{post.title}
 									</Heading>
-								</Link>
+								</AniLink>
+
 								<Text>{post.date}</Text>
 								<Flex>
 									{post.tags.map(function(tag) {

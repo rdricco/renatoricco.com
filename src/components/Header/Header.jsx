@@ -4,6 +4,7 @@ import { Flex, Box, Heading, Text, Button } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Headroom from 'react-headroom';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { TiHome } from 'react-icons/ti';
 
 const TopNavigation = styled(Box)`
@@ -16,7 +17,7 @@ const TopNavigation = styled(Box)`
   transition: ${(props) => props.theme.transitions.default};
   box-shadow: ${(props) => props.theme.shadows.upper};
   background-color: ${(props) => props.theme.colors.maincolor};
-  z-index: 999;
+  z-index: ${(props) => props.theme.zIndex.top};
   a,
   a:visited,
   a:active {
@@ -49,14 +50,16 @@ export default class Header extends Component {
 					<ContainerBox>
 						<ContainerFlex mx='auto'>
 							<Box mr='auto' className='userLinks-container'>
-								<Link to='/'>
+								<AniLink cover bg='rebeccapurple' to='/'>
 									<TiHome size={this.props.iconSize} />
-								</Link>
+								</AniLink>
 							</Box>
 							<LinkBox ml='auto' className='notice-container'>
-								<Link to='/works/'>
+								{/* <Link to='/works/'>
+								</Link> */}
+								<AniLink cover bg='rebeccapurple' to='works'>
 									<Text fontSize={this.props.textSize}>Works</Text>
-								</Link>
+								</AniLink>
 							</LinkBox>
 						</ContainerFlex>
 					</ContainerBox>
