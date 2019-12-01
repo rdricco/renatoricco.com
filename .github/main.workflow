@@ -25,8 +25,6 @@ action "Build" {
   args = "run build"
   needs = ["Npm install"]
   secrets = [
-    "GRAPHCMS_ENDPOINT",
-    "GRAPHCMS_TOKEN",
     "HOTJAR_SNIPPET_VERSION",
     "GOOGLEANALYTICS_ID",
     "HOTJAR_ID",
