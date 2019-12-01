@@ -9,8 +9,8 @@ public_folder: assets
 # publish_mode: editorial_workflow
 # logo_url: https://elated-wozniak-10af2e.netlify.com/assets/reallybigsky.jpg
 
-site_url: https://elated-wozniak-10af2e.netlify.com/
-display_url: https://elated-wozniak-10af2e.netlify.com/
+site_url: https://beta.renatoricco.com/
+display_url: https://beta.renatoricco.com/
 
 collections:
   - name: portfolio

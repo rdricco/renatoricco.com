@@ -80,6 +80,11 @@ min-height: 70vh;
 		box-shadow: grey 0.8px 0.9px 3px;
 
 	}
+	  @media (max-width: 1300px) {
+		  padding: 10px;
+
+		}
+	
 `;
 const ContainerFlex = styled(Flex)`
 justify-content: center;

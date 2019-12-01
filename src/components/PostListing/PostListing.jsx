@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Flex, Box, Heading, Text, Card, Image, Tiles } from 'rebass/styled-components';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
@@ -92,9 +91,16 @@ flex-direction: column;
 justify-content: center;
   max-width: 1300px;
   width: 100%;
+  padding:10px;
   h1 {
     margin: 50px 0 20px 0;
   }
+  @media (max-width: 600px) {
+	.userLinks-container,
+	.notice-container{
+			padding: 20px;
+		}
+	}
 `;
 const Tags = styled(Text)`
 	margin-left:0;
