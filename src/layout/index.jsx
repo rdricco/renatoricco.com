@@ -35,18 +35,30 @@ export default class MainLayout extends React.Component {
 }
 
 const GlobalStyle = createGlobalStyle`
+  *,
+  *::after,
+  *::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: inherit;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    box-sizing: border-box;
+	overflow-y: scroll;
+  }
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    /* max-width: 100vw; */
 }
 
-body {
-    overflow-y: scroll;
-}
 a,
 p,
 li,

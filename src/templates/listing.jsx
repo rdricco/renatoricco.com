@@ -2,10 +2,11 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import Layout from '../layout';
-import PostListing from '../components/PostListing/PostListing';
-import SEO from '../components/SEO/SEO';
+import styled from 'styled-components';
+import { Flex, Box, Heading } from 'rebass/styled-components';
+import PostListing from '../components/Utils/PostListing/PostListing';
+import SEO from '../components/Utils/SEO/SEO';
 import config from '../../data/SiteConfig';
-import './listing.css';
 
 export default class Listing extends React.Component {
 	renderPaging() {
@@ -42,7 +43,20 @@ export default class Listing extends React.Component {
 					<div className='posts-container'>
 						<Helmet title={config.siteTitle} />
 						<SEO />
-						<PostListing postEdges={postEdges} />
+						<ContentContainer>
+							<Box flexWrap='wrap' px={2} mx={0}>
+								<Heading
+									as='h1'
+									fontSize={[
+										3,
+										4,
+										5
+									]}>
+									Featured Works
+								</Heading>
+							</Box>
+							<PostListing postEdges={postEdges} />
+						</ContentContainer>
 					</div>
 					{this.renderPaging()}
 				</div>
@@ -72,6 +86,23 @@ export const listingQuery = graphql`
 					}
 				}
 			}
+		}
+	}
+`;
+
+const ContentContainer = styled(Box)`
+	width: 100%;
+	max-width: 1300px;
+	min-height: 83vh;
+	margin: auto;
+	padding:10px;
+  	h1 {
+	    margin: 50px 0 20px 0;
+  	}
+  	@media (max-width: 600px) {
+		.userLinks-container,
+		.notice-container{
+			padding: 20px;
 		}
 	}
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Box, Heading, Text, Card, Image, Tiles } from 'rebass/styled-components';
+import { Flex, Box, Heading, Text, Card, Image } from 'rebass/styled-components';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 import PostTags from '../PostTags/PostTags';
@@ -26,62 +26,47 @@ export default class PostListing extends React.Component {
 	render() {
 		const postList = this.getPostList();
 		return (
-			<ContentContainer>
-				<Box flexWrap='wrap' px={2} mx={0}>
-					<Heading
-						as='h1'
-						fontSize={[
-							3,
-							4,
-							5
+			<CardsContainer className='Cards-Container' flexWrap='wrap' px={2} mx={0}>
+				{/* Your post list here. */
+				postList.map((post) => (
+					<CardContainer
+						px={1}
+						m={1}
+						width={[
+							1,
+							0.48,
+							0.32,
+							0.24
 						]}
-						color='primary'>
-						Featured Works
-					</Heading>
-				</Box>
+						key={post.title}>
+						<AniLink cover bg='rebeccapurple' to={post.path}>
+							<Image src={post.preview} />
+						</AniLink>
 
-				<CardsContainer flexWrap='wrap' px={2} mx={0}>
-					{/* Your post list here. */
-					postList.map((post) => (
-						<CardContainer
-							px={1}
-							m={1}
-							width={[
-								1,
-								0.48,
-								0.32,
-								0.24
-							]}
-							key={post.title}>
+						<TextContainer>
 							<AniLink cover bg='rebeccapurple' to={post.path}>
-								<Image src={post.preview} />
+								<Heading
+									as='h2'
+									fontSize={[
+										2,
+										2,
+										3
+									]}
+									color='primary'>
+									{post.title}
+								</Heading>
 							</AniLink>
 
-							<TextContainer>
-								<AniLink cover bg='rebeccapurple' to={post.path}>
-									<Heading
-										as='h2'
-										fontSize={[
-											2,
-											2,
-											3
-										]}
-										color='primary'>
-										{post.title}
-									</Heading>
-								</AniLink>
-
-								<Text>{post.date}</Text>
-								<Flex>
-									{post.tags.map(function(tag) {
-										return <Tags>{tag}</Tags>;
-									})}
-								</Flex>
-							</TextContainer>
-						</CardContainer>
-					))}
-				</CardsContainer>
-			</ContentContainer>
+							<Text>{post.date}</Text>
+							<Flex>
+								{post.tags.map(function(tag) {
+									return <Tags>{tag}</Tags>;
+								})}
+							</Flex>
+						</TextContainer>
+					</CardContainer>
+				))}
+			</CardsContainer>
 		);
 	}
 }

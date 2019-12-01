@@ -5,8 +5,8 @@ import { graphql } from 'gatsby';
 
 import Layout from '../layout';
 
-import PostTags from '../components/PostTags/PostTags';
-import SEO from '../components/SEO/SEO';
+import PostTags from '../components/Utils/PostTags/PostTags';
+import SEO from '../components/Utils/SEO/SEO';
 
 import config from '../../data/SiteConfig';
 import './b16-tomorrow-dark.css';

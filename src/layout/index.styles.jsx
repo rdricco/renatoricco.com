@@ -1,16 +1,6 @@
 import styled from 'styled-components';
 import { Flex, Box } from 'rebass/styled-components';
 
-export const dark = {
-	primary: 'black',
-	text: 'switch to light mode'
-};
-
-export const light = {
-	alternative: 'blue',
-	text: 'switch to dark mode'
-};
-
 export const LayoutContainer = styled(Box)`
   height: 100%;
   width: 100%;
