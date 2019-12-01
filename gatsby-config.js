@@ -1,204 +1,223 @@
-require("dotenv").config();
-const _ = require("lodash");
-//
-const config = require("./data/SiteConfig");
-const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
+const urljoin = require('url-join');
+const path = require('path');
+const config = require('./data/SiteConfig');
+
 module.exports = {
-  pathPrefix: config.pathPrefix,
-  siteMetadata: {
-    title: config.siteTitle,
-    author: config.userName,
-    description: config.siteDescription,
-    siteUrl: config.siteUrl + pathPrefix,
-    rssMetadata: {
-      site_url: config.siteUrl + pathPrefix,
-      feed_url: config.siteUrl + pathPrefix + config.siteRss,
-      title: config.siteTitle,
-      description: config.siteDescription,
-      image_url: `${config.siteUrl + pathPrefix}/logos/logo.png`,
-      author: config.userName,
-      copyright: config.copyright
-    }
-  },
-  plugins: [
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-emoji`,
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-widows`,
-          `gatsby-remark-responsive-iframe`,
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: "_self",
-              rel: "nofollow"
-            }
-          },
-          `gatsby-remark-copy-images`,
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 768
+	pathPrefix: config.pathPrefix === '' ? '/' : config.pathPrefix,
+	siteMetadata: {
+		siteUrl: urljoin(config.siteUrl, config.pathPrefix),
+		rssMetadata: {
+			site_url: urljoin(config.siteUrl, config.pathPrefix),
+			feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
+			title: config.siteTitle,
+			description: config.siteDescription,
+			image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/logos/logo-512.png`,
+			copyright: config.copyright
+		}
+	},
+	plugins: [
+		'gatsby-plugin-react-helmet',
+		'gatsby-plugin-lodash',
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'assets',
+				path: `${__dirname}/static/`
+			}
+		},
+		// {
+		// 	resolve: 'gatsby-source-filesystem',
+		// 	options: {
+		// 		name: 'posts',
+		// 		path: `${__dirname}/content/blog`
+		// 	}
+		// },
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: 'works',
+				path: `${__dirname}/content/works`
+			}
+		},
+		// {
+		// 	resolve: `gatsby-plugin-page-creator`,
+		// 	options: {
+		// 		path: `${__dirname}/content/pages`
+		// 	}
+		// },
+		{
+			resolve: 'gatsby-transformer-remark',
+			options: {
+				plugins: [
+					{
+						resolve: 'gatsby-remark-images',
+						options: {
+							maxWidth: 690
+						}
+					},
+					{
+						resolve: 'gatsby-remark-responsive-iframe'
+					},
+					`gatsby-remark-emoji`,
+					`gatsby-remark-widows`,
+					`gatsby-remark-responsive-iframe`,
+					'gatsby-remark-copy-linked-files',
+					'gatsby-remark-autolink-headers',
+					'gatsby-remark-prismjs',
+					{
+						resolve: 'gatsby-remark-external-links',
+						options: {
+							target: '_self',
+							rel: 'nofollow'
+						}
+					},
+					`gatsby-remark-copy-images`,
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 768
+						}
+					}
+				]
+			}
+		},
+		`gatsby-plugin-transition-link`,
+		{
+			resolve: 'gatsby-plugin-google-analytics',
+			options: {
+				trackingId: config.googleAnalyticsID
+			}
+		},
+		{
+			resolve: 'gatsby-plugin-nprogress',
+			options: {
+				color: config.themeColor
+			}
+		},
+		`gatsby-plugin-styled-components`,
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [
+					`Poppins`,
+					`Roboto`,
+					'Anonymous Pro'
+				]
+			}
+		},
+		'gatsby-plugin-sharp',
+		'gatsby-transformer-sharp',
+		'gatsby-plugin-catch-links',
+		'gatsby-plugin-twitter',
+		'gatsby-plugin-sitemap',
+		{
+			resolve: 'gatsby-plugin-manifest',
+			options: {
+				name: config.siteTitle,
+				short_name: config.siteTitleShort,
+				description: config.siteDescription,
+				start_url: config.pathPrefix,
+				background_color: config.backgroundColor,
+				theme_color: config.themeColor,
+				display: 'minimal-ui',
+				icons: [
+					{
+						src: '/logos/logo-192.png',
+						sizes: '192x192',
+						type: 'image/png'
+					},
+					{
+						src: '/logos/logo-512.png',
+						sizes: '512x512',
+						type: 'image/png'
+					}
+				]
+			}
+		},
+		'gatsby-plugin-offline',
+		{
+			resolve: 'gatsby-plugin-netlify-cms',
+			options: {
+				modulePath: path.resolve('src/netlifycms/index.js'), // default: undefined
+				enableIdentityWidget: true,
+				publicPath: 'admin',
+				htmlTitle: 'Netlify CMS',
+				includeRobots: false
+			}
+		},
+		{
+			resolve: 'gatsby-plugin-feed',
+			options: {
+				setup(ref) {
+					const ret = ref.query.site.siteMetadata.rssMetadata;
+					ret.allMarkdownRemark = ref.query.allMarkdownRemark;
+					ret.generator = 'Renato Ricco | Portfolio';
+					return ret;
+				},
+				query: `
+        {
+          site {
+            siteMetadata {
+              rssMetadata {
+                site_url
+                feed_url
+                title
+                description
+                image_url
+                copyright
+              }
             }
           }
-          // {
-          //   resolve: `gatsby-remark-responsive-image`,
-          //   options: {
-          //     // It's important to specify the maxWidth (in pixels) of
-          //     // the content container as this plugin uses this as the
-          //     // base for generating different widths of each image.
-          //     maxWidth: 768,
-          //   },
-          // },
-        ]
-      }
-    },
-    // `gatsby-plugin-accessibilityjs`,
-    {
-      resolve: `gatsby-source-graphcms`,
-      options: {
-        endpoint: process.env.GRAPHCMS_ENDPOINT,
-        token: process.env.GRAPHCMS_TOKEN,
-        query: require("./data/configQuery")
-      }
-    },
-    "gatsby-plugin-react-next",
-    `gatsby-plugin-lodash`,
-    {
-      resolve: "gatsby-plugin-svgr",
-      options: {
-        icon: true,
-        viewBox: false
-      }
-    },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-catch-links",
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Poppins`, `Roboto`]
-      }
-    },
-    `gatsby-plugin-styled-components`,
-    {
-      resolve: "gatsby-plugin-nprogress",
-      options: {
-        color: config.themeColor
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLEANALYTICS_ID,
-        head: false,
-        anonymize: true,
-        respectDNT: true
-      }
-    },
-    {
-      resolve: `gatsby-plugin-hotjar`,
-      options: {
-        id: process.env.HOTJAR_ID,
-        sv: process.env.HOTJAR_SNIPPET_VERSION
-      }
-    },
-    "gatsby-plugin-sitemap",
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "Renato Ricco | Portfolio",
-        short_name: "renato ricco",
-        start_url: "/",
-        background_color: "#fff",
-        theme_color: config.themeColor,
-        display: "minimal-ui",
-        icons: [
-          {
-            src: `/favicons/favicon-16x16.png`,
-            sizes: `16x16`,
-            type: `image/png`
-          },
-          {
-            src: `/favicons/favicon-32x32.png`,
-            sizes: `32x32`,
-            type: `image/png`
-          },
-          {
-            src: `/favicons/mstile-144x144.png`,
-            sizes: `144x144`,
-            type: `image/png`
-          },
-          {
-            src: `/favicons/mstile-150x150.png`,
-            sizes: `150x150`,
-            type: `image/png`
-          },
-          {
-            src: `/favicons/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`
-          },
-          {
-            src: `/favicons/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`
-          }
-        ]
-      }
-    },
-    "gatsby-plugin-offline",
-    // {
-    //   resolve: `gatsby-plugin-feed`,
-    //   options: {
-    //     query: `
-    //     {
-    //       site {
-    //         siteMetadata {
-    //           title
-    //           description
-    //           siteUrl
-    //           site_url: siteUrl
-    //         }
-    //       }
-    //     }
-    //   `,
-    //     feeds: [
-    //       {
-    //         serialize: ({ query: { site, allPostsMarkdown } }) => {
-    //           return allPostsMarkdown.edges.map(edge => {
-    //             return Object.assign({}, edge.node, {
-    //               description: edge.node.childMarkdownRemark.excerpt,
-    //               url: site.siteMetadata.siteUrl + edge.node.slug,
-    //               guid: site.siteMetadata.siteUrl + edge.node.slug
-    //             });
-    //           });
-    //         },
-    //         query: `
-    //         {
-    //           allPostsMarkdown(
-    //             limit: 1000,
-    //             sort: { order: DESC, fields: [date] },
-    //             filter: { isPublished: { ne: false } }
-    //           ) {
-    //             edges {
-    //               node {
-    //                 title
-    //                 date
-    //                 html
-    //                   childMarkdownRemark{
-    //                   excerpt
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       `,
-    //         output: "/rss.xml"
-    //       }
-    //     ]
-    //   }
-    // }
-  ]
+        }
+      `,
+				feeds: [
+					{
+						serialize(ctx) {
+							const { rssMetadata } = ctx.query.site.siteMetadata;
+							return ctx.query.allMarkdownRemark.edges.map((edge) => ({
+								categories: edge.node.frontmatter.tags,
+								date: edge.node.fields.date,
+								title: edge.node.frontmatter.title,
+								description: edge.node.excerpt,
+								url: rssMetadata.site_url + edge.node.fields.slug,
+								guid: rssMetadata.site_url + edge.node.fields.slug,
+								custom_elements: [
+									{ 'content:encoded': edge.node.html },
+									{ author: config.userEmail }
+								]
+							}));
+						},
+						query: `
+            {
+              allMarkdownRemark(
+                limit: 1000,
+                sort: { order: DESC, fields: [fields___date] },
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    timeToRead
+                    fields {
+                      slug
+                      date
+                    }
+                    frontmatter {
+                      title
+                      cover
+                      date
+                      category
+                      tags
+                    }
+                  }
+                }
+              }
+            }
+          `,
+						output: config.siteRss
+					}
+				]
+			}
+		}
+	]
 };

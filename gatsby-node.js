@@ -1,146 +1,165 @@
-const createPaginatedPages = require("gatsby-paginate");
-const _ = require("lodash");
-const slugify = require("lodash-addons"); 
-const path = require("path");
+/* eslint "no-console": "off" */
 
-const worksTemplate = path.resolve("src/templates/works.jsx");
-const blogPostTemplate = path.resolve("src/templates/post.jsx");
-const tagTemplate = path.resolve("src/templates/tags.jsx");
+const path = require('path');
+const _ = require('lodash');
+const moment = require('moment');
+const siteConfig = require('./data/SiteConfig');
 
+exports.onCreateNode = ({ node, actions, getNode }) => {
+	const { createNodeField } = actions;
+	let slug;
+	if (node.internal.type === 'MarkdownRemark') {
+		const fileNode = getNode(node.parent);
+		const parsedFilePath = path.parse(fileNode.relativePath);
+		if (
+			Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
+			Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
+		) {
+			slug = `/${_.kebabCase(node.frontmatter.title)}`;
+		}
+		else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
+			slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
+		}
+		else if (parsedFilePath.dir === '') {
+			slug = `/${parsedFilePath.name}/`;
+		}
+		else {
+			slug = `/${parsedFilePath.dir}/`;
+		}
 
-exports.onCreateNode = ({ node, boundActionCreators }) => {
-  const { createNode } = boundActionCreators;
-  // Posts here is the node you'd like to create markdown for use on remark plugins
-  if (node.internal.type === `Portfolios`) {
-    createNode({
-      id: `md-${node.id}`,
-      parent: node.id,
-      children: [],
-      internal: {
-        type: `${node.internal.type}Markdown`,
-        mediaType: `text/markdown`,
-        content: node.content,
-        contentDigest: node.internal.contentDigest
-      },
-      createdAt: node.createdAt,
-      updatedAt: node.updatedAt,
-      isPublished: node.isPublished,
-      title: node.title,
-      slug: node.slug,
-      date: node.date,
-      description: node.description,
-      html: node.content,
-      content: node.content,
-      tags: node.tags,
-      category: node.category,
-      coverImage: node.coverImage,
-      bannerImage: node.bannerImage,
-      images: node.images,
-    });
-  }
+		if (Object.prototype.hasOwnProperty.call(node, 'frontmatter')) {
+			if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug'))
+				slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+			if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'date')) {
+				const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
+				if (!date.isValid) console.warn(`WARNING: Invalid date.`, node.frontmatter);
+
+				createNodeField({ node, name: 'date', value: date.toISOString() });
+			}
+		}
+		createNodeField({ node, name: 'slug', value: slug });
+	}
 };
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        posts: allPortfoliosMarkdown(
-          sort: { fields: [date], order: DESC }
-          filter: { isPublished: { ne: false } }
-          ) {
-          edges {
-            node {
-              id
-              html
-              content
-              description
-              title
+exports.createPages = async ({ graphql, actions }) => {
+	const { createPage } = actions;
+	const postPage = path.resolve('src/templates/post.jsx');
+	const tagPage = path.resolve('src/templates/tag.jsx');
+	const categoryPage = path.resolve('src/templates/category.jsx');
+	const listingPage = path.resolve('./src/templates/listing.jsx');
+
+	// Get a full list of markdown posts
+	const markdownQueryResult = await graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
               slug
-              tags
+            }
+            frontmatter {
+              title
+			  tags
+			  cover
+			  preview
               category
-              date(formatString: "MM/YYYY")
-              isPublished
-              coverImage {
-                altText
-                caption
-                id
-                mimeType
-                fileName
-                height
-                width
-                url
-                handle
-                size
-              }
-              images {
-                altText
-                caption
-                order
-                id
-                mimeType
-                fileName
-                height
-                width
-                url
-                handle
-                size
-              }
-              childMarkdownRemark{
-                html
-                excerpt
-              }
+              date
             }
           }
         }
       }
-    `).then(result => {
-        if (result.errors) {
-            console.log(result.errors);
-            return Promise.reject(result.errors);
-        }
-        const posts = result.data.posts.edges;
-        posts.forEach(({ node }) => {
-          createPage({
-            // path: _.slugify(node.slug),
-            path: node.slug,
-            component: blogPostTemplate,
-            context: {
-              slug: node.slug
-            }
-          });
-        });
+    }
+  `);
 
-        createPaginatedPages({
-          edges: posts,
-          createPage: createPage,
-          pageTemplate: worksTemplate,
-          pageLength: 100,
-          pathPrefix: "works",
-        });
+	if (markdownQueryResult.errors) {
+		console.error(markdownQueryResult.errors);
+		throw markdownQueryResult.errors;
+	}
 
+	const tagSet = new Set();
+	const categorySet = new Set();
 
+	const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
 
-        let tags = [];
-        // Iterate through each post, putting all found tags into `tags`
-        _.each(posts, edge => {
-          if (_.get(edge, "node.tags")) {
-            tags = tags.concat(edge.node.tags);
-          }
-        });
-        // Eliminate duplicate tags
-        tags = _.uniq(tags);
-        // Make tag pages
-        tags.forEach(tag => {
-          createPage({
-            path: `/tags/${_.kebabCase(tag)}/`,
-            component: tagTemplate,
-            context: {
-              tag,
-            },
-          });
-        });
-        resolve();
-      });
-  });
+	// Sort posts
+	postsEdges.sort((postA, postB) => {
+		const dateA = moment(postA.node.frontmatter.date, siteConfig.dateFromFormat);
+
+		const dateB = moment(postB.node.frontmatter.date, siteConfig.dateFromFormat);
+
+		if (dateA.isBefore(dateB)) return 1;
+		if (dateB.isBefore(dateA)) return -1;
+
+		return 0;
+	});
+
+	// Paging
+	const { postsPerPage } = siteConfig;
+	const pageCount = Math.ceil(postsEdges.length / postsPerPage);
+
+	[
+		...Array(pageCount)
+	].forEach((_val, pageNum) => {
+		createPage({
+			path: pageNum === 0 ? `/works/` : `/works/${pageNum + 1}/`,
+			component: listingPage,
+			context: {
+				limit: postsPerPage,
+				skip: pageNum * postsPerPage,
+				pageCount,
+				currentPageNum: pageNum + 1
+			}
+		});
+	});
+
+	// Post page creating
+	postsEdges.forEach((edge, index) => {
+		// Generate a list of tags
+		if (edge.node.frontmatter.tags) {
+			edge.node.frontmatter.tags.forEach((tag) => {
+				tagSet.add(tag);
+			});
+		}
+
+		// Generate a list of categories
+		if (edge.node.frontmatter.category) {
+			categorySet.add(edge.node.frontmatter.category);
+		}
+
+		// Create post pages
+		const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
+		const prevID = index - 1 >= 0 ? index - 1 : postsEdges.length - 1;
+		const nextEdge = postsEdges[nextID];
+		const prevEdge = postsEdges[prevID];
+
+		createPage({
+			path: edge.node.fields.slug,
+			component: postPage,
+			context: {
+				slug: edge.node.fields.slug,
+				nexttitle: nextEdge.node.frontmatter.title,
+				nextslug: nextEdge.node.fields.slug,
+				prevtitle: prevEdge.node.frontmatter.title,
+				prevslug: prevEdge.node.fields.slug
+			}
+		});
+	});
+
+	//  Create tag pages
+	tagSet.forEach((tag) => {
+		createPage({
+			path: `/tags/${_.kebabCase(tag)}/`,
+			component: tagPage,
+			context: { tag }
+		});
+	});
+
+	// Create category pages
+	categorySet.forEach((category) => {
+		createPage({
+			path: `/categories/${_.kebabCase(category)}/`,
+			component: categoryPage,
+			context: { category }
+		});
+	});
 };
