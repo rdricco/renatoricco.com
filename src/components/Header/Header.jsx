@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Flex, Box, Heading, Text, Button } from 'rebass/styled-components';
 import styled from 'styled-components';
@@ -7,70 +7,71 @@ import Headroom from 'react-headroom';
 import { TiHome } from 'react-icons/ti';
 
 const TopNavigation = styled(Box)`
-  padding: 0px 15px;
   display: flex;
-  z-index: 999;
-  background-color: white;
   max-width: 100%;
   min-height: 7vh;
-  transition: all 0.5s ease-in;
-  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.32);
+  padding: 0px 15px;
   padding-top: 10px;
   padding-bottom: 10px;
+  transition: ${(props) => props.theme.transitions.default};
+  box-shadow: ${(props) => props.theme.shadows.upper};
+  background-color: ${(props) => props.theme.colors.maincolor};
+  z-index: 999;
   a,
   a:visited,
   a:active {
     color: inherit;
     text-decoration: none;
+    transition: ${(props) => props.theme.transitions.fast};
   }
   a:hover {
-    text-decoration: underline;
+	color: ${(props) => props.theme.colors.secondaryColor}
   }
 `;
 
 const ContainerBox = styled(Box)`
-  transition: all 0.5s ease-in;
   margin: auto;
   width: 100%;
 `;
-const LinkBox = styled(Box)`
-  transition: all 0.5s ease-in;
-  display: flex;
+const LinkBox = styled(Flex)`
   align-items: center;
 `;
 const ContainerFlex = styled(Flex)`
-  transition: all 0.5s ease-in;
   max-width: 1300px;
   margin-left: auto;
 `;
 
-const Header = (props) => (
-	<Headroom>
-		<TopNavigation className='HeaderWrapper'>
-			<ContainerBox>
-				<ContainerFlex mx='auto'>
-					<Box mr='auto' className='userLinks-container'>
-						<Link to='/'>
-							<TiHome size='30px' />
-						</Link>
-					</Box>
-					<LinkBox ml='auto' className='notice-container'>
-						<Link to='/works/'>
-							<Text fontSize={2}>Works</Text>
-						</Link>
-					</LinkBox>
-				</ContainerFlex>
-			</ContainerBox>
-		</TopNavigation>
-	</Headroom>
-);
+export default class Header extends Component {
+	render() {
+		return (
+			<Headroom>
+				<TopNavigation className='HeaderWrapper'>
+					<ContainerBox>
+						<ContainerFlex mx='auto'>
+							<Box mr='auto' className='userLinks-container'>
+								<Link to='/'>
+									<TiHome size={this.props.iconSize} />
+								</Link>
+							</Box>
+							<LinkBox ml='auto' className='notice-container'>
+								<Link to='/works/'>
+									<Text fontSize={this.props.textSize}>Works</Text>
+								</Link>
+							</LinkBox>
+						</ContainerFlex>
+					</ContainerBox>
+				</TopNavigation>
+			</Headroom>
+		);
+	}
+}
 
 Header.propTypes = {
-	// bla: PropTypes.string,
+	textSize: PropTypes.string,
+	iconSize: PropTypes.string
 };
 
 Header.defaultProps = {
-	// bla: 'test',
+	textSize: '2',
+	iconSize: '30px'
 };
-
-export default Header;

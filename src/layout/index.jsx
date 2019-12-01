@@ -1,58 +1,40 @@
 import React from 'react';
 import config from '../../data/SiteConfig';
 import Helmet from 'react-helmet';
-import { ThemeProvider } from 'styled-components';
-import { LayoutContainer, AppContainer, ContentContainer } from './index.styles';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import { createGlobalStyle } from 'styled-components';
+
+import styled from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import theme from '../../data/theme';
+import { Flex, Box } from 'rebass/styled-components';
+
+import Footer from '../components/Footer/index';
+import Header from '../components/Header/index';
+import preset from '@rebass/preset';
+
 export default class MainLayout extends React.Component {
 	render() {
 		const { children } = this.props;
+		console.log(theme.colors);
 		return (
-			<ThemeProvider theme={dark}>
-				<GlobalStyle />
-				<LayoutContainer className='layout-container'>
+			<ThemeProvider theme={theme}>
+				<Box className='layout-container'>
+					<GlobalStyle />
 					<Helmet>
 						<meta name='description' content={config.siteDescription} />
 						<html lang='en' />
 					</Helmet>
-					<AppContainer className='app-container'>
+					<Box className='app-shell'>
 						<Header className='header-container' />
 						<ContentContainer className='content-container'>{children}</ContentContainer>
 						<Footer className='footer-container' />
-					</AppContainer>
-				</LayoutContainer>
+					</Box>
+				</Box>
 			</ThemeProvider>
 		);
 	}
 }
 
-export const dark = {
-	maincolor: 'black'
-};
-
-const light = {
-	primaryColor: 'white',
-	secondaryColor: 'black',
-	accentColor: 'gray'
-};
-
 const GlobalStyle = createGlobalStyle`
-body::-webkit-scrollbar {
-    width: 5px;
-    background-color: #f5f5f5;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, .3);
-}
-
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #f5f5f5;
-}
-
 html,
 body {
     margin: 0;
@@ -65,4 +47,55 @@ body {
 body {
     overflow-y: scroll;
 }
+a,
+p,
+li,
+div,
+button {
+font-family: ${theme.fonts.body};
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-family: ${theme.fonts.heading};
+}
+a,
+a:visited,
+a:active {
+color: inherit;
+text-decoration-color: ${theme.colors.secondaryColor};
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+text-decoration-color: ${theme.colors.secondaryColor};
+}
+body::-webkit-scrollbar {
+    width: 5px;
+    background-color: ${theme.colors.maincolor};
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+body::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: ${theme.colors.maincolor};
+}
+`;
+
+export const ContentContainer = styled(Box)`
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: ${theme.colors.white};
 `;

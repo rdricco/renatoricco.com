@@ -31,6 +31,8 @@ export const AppContainer = styled(Box)`
     text-decoration: underline;
     text-decoration-color: yellow;
   }
+  a,
+  p,
   div,
   button {
     font-family: "Anonymous Pro";

@@ -25,18 +25,21 @@ export default class PostListing extends React.Component {
 	render() {
 		const postList = this.getPostList();
 		return (
-			<BoxContainer>
-				<Heading
-					as='h1'
-					fontSize={[
-						3,
-						4,
-						5
-					]}
-					color='primary'>
-					Featured Works
-				</Heading>
-				<FlexContainer flexWrap='wrap' px={2} mx={0}>
+			<ContentContainer>
+				<Box flexWrap='wrap' px={2} mx={0}>
+					<Heading
+						as='h1'
+						fontSize={[
+							3,
+							4,
+							5
+						]}
+						color='primary'>
+						Featured Works
+					</Heading>
+				</Box>
+
+				<CardsContainer flexWrap='wrap' px={2} mx={0}>
 					{/* Your post list here. */
 					postList.map((post) => (
 						<CardContainer
@@ -74,37 +77,37 @@ export default class PostListing extends React.Component {
 							</TextContainer>
 						</CardContainer>
 					))}
-				</FlexContainer>
-			</BoxContainer>
+				</CardsContainer>
+			</ContentContainer>
 		);
 	}
 }
 
-const BoxContainer = styled(Box)`
+const ContentContainer = styled(Flex)`
+flex-direction: column;
+justify-content: center;
   max-width: 1300px;
+  width: 100%;
   h1 {
     margin: 50px 0 20px 0;
   }
 `;
 const Tags = styled(Text)`
-margin-right:.5em;
-margin-left:0;
-text-decoration: none;
-  font-size: 11px;
-  padding: 5px 10px ;
-  color: white;
-  background-color: black;
-  transition: all .3s;
-  border-radius: 4px;
-  :hover{
-  color: black;
-  background-color: yellow;
-  cursor: pointer;
+	margin-left:0;
+	margin-right:.5em;
+	padding: 5px 10px ;
+	font-size: 11px;
+	text-decoration: none;
+	color: ${(props) => props.theme.colors.maincolor};
+	background-color: ${(props) => props.theme.colors.black};;
+	transition: ${(props) => props.theme.transitions.fast};
+	border-radius: 4px;
+	:hover{
+	color: ${(props) => props.theme.colors.black};
+	background-color: ${(props) => props.theme.colors.secondaryColor};
+	cursor: pointer;
 `;
-const FlexContainer = styled(Flex)`
-  justify-content: center;
-  margin: 0;
-  padding: 0px;
+const CardsContainer = styled(Flex)`
   a,
   a:visited,
   a:active,
@@ -116,16 +119,16 @@ const FlexContainer = styled(Flex)`
 `;
 
 const CardContainer = styled(Card)`
-  padding: 0px;
-  box-shadow: grey 0.8px 0.9px 3px;
-  background: white;
-  transition: box-shadow 0.5s ease-out 0s;
-  border-radius: 4px;
-  :hover {
-    box-shadow: grey 1px 8px 20px;
-    transition: all 0.3s ease-in 0s;
-    transform: translateY(-1px);
-  }
+	padding: 0px;
+	box-shadow: grey 0.8px 0.9px 3px;
+	background-color: ${(props) => props.theme.colors.maincolor};
+	transition: ${(props) => props.theme.transitions.fast};
+	border-radius: 4px;
+	:hover {
+		box-shadow: grey 1px 8px 20px;
+		${(props) => props.theme.transitions.fast}
+		/* transform: translateY(-1px); */
+  	}
 `;
 const TextContainer = styled(Box)`
   padding: 10px;
