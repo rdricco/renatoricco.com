@@ -50,14 +50,14 @@ export default class Header extends Component {
 					<ContainerBox>
 						<ContainerFlex mx='auto'>
 							<Box mr='auto' className='userLinks-container'>
-								<AniLink direction='right' cover bg='rebeccapurple' to='/'>
+								<AniLink direction='left' cover bg='#FFFFFF' to='/'>
 									<TiHome size={this.props.iconSize} />
 								</AniLink>
 							</Box>
 							<LinkBox ml='auto' className='notice-container'>
 								{/* <Link to='/works/'>
 								</Link> */}
-								<AniLink cover bg='rebeccapurple' to='works'>
+								<AniLink cover bg='#F2C94C' to='works'>
 									<Text fontSize={this.props.textSize}>Works</Text>
 								</AniLink>
 							</LinkBox>

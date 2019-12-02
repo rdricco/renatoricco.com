@@ -2,7 +2,7 @@
 title: Typejekyll - Jekyll Theme
 slug: typejekyll-theme
 date: "2017-10-01"
-transition: "yellow"
+transition: "#BA0000"
 preview: /assets/cover_jekyll.png
 cover: /assets/cover_jekyll.png
 category: Development Starter Kit

@@ -1,7 +1,7 @@
 ---
 title: Marcia Mello
 date: "2019-02-01"
-transition: "yellow"
+transition: "#AED3E3"
 cover: /assets/cover_marciamello.png
 preview: /assets/cover_marciamello.png
 slug: marcia-mello

@@ -2,7 +2,7 @@
 title: Crypto - Privacy Talks
 slug: crypto-talks
 date: "2016-11-01"
-transition: "yellow"
+transition: "#032340"
 preview: /assets/cover_crypto.png
 cover: /assets/cover_crypto.png
 category: Design

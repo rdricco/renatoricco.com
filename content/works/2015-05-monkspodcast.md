@@ -2,7 +2,7 @@
 title: Monks In Dunks Podcast
 slug: monks-in-dunks-podcast
 date: "2015-05-01"
-transition: "yellow"
+transition: "#F27E6B"
 preview: /assets/cover_monks.png
 cover: /assets/cover_monks.png
 category: Design

@@ -2,7 +2,7 @@
 title: Conviva
 slug: conviva
 date: "2018-03-01"
-transition: "yellow"
+transition: "#F2F2F2"
 preview: /assets/cover_conviva.png
 cover: /assets/cover_conviva.png
 category: Institutional Site

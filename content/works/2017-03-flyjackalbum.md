@@ -2,7 +2,7 @@
 title: Flyjack - New Day
 slug: flyjack-new-day
 date: "2017-03-01"
-transition: "yellow"
+transition: "#D86D41"
 preview: /assets/cover_flyjack.png
 cover: /assets/cover_flyjack.png
 category: Design

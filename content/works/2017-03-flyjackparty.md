@@ -2,7 +2,7 @@
 title: Flyjack - Release Party
 slug: flyjack-release-party
 date: "2017-03-03"
-transition: "yellow"
+transition: "#D86D41"
 preview: /assets/cover_flyjack_flyer.png
 cover: /assets/cover_flyjack_flyer.png
 category: Design
