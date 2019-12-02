@@ -1,7 +1,8 @@
 ---
 title: Gregory
 slug: gregory
-date: '2018-01-01'
+date: "2018-01-01"
+transition: "yellow"
 preview: /assets/cover_gregory.png
 cover: /assets/cover_gregory.png
 category: Ecommerce
@@ -11,6 +12,7 @@ tags:
   - CSS
   - HTML
 ---
+
 .
 
 ![](/assets/gregory_01.jpg)

@@ -1,6 +1,7 @@
 ---
 title: Broto de Primavera
 slug: broto-de-primavera
+color: 'yellow'
 date: '2016-03-01'
 preview: /assets/cover_broto.png
 cover: /assets/cover_broto.png

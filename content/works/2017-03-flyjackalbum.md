@@ -1,7 +1,8 @@
 ---
 title: Flyjack - New Day
 slug: flyjack-new-day
-date: '2017-03-01'
+date: "2017-03-01"
+transition: "yellow"
 preview: /assets/cover_flyjack.png
 cover: /assets/cover_flyjack.png
 category: Design
@@ -10,6 +11,7 @@ tags:
   - Art Direction
   - Logo Design
 ---
+
 .
 
 ![](/assets/flyjack_00.png)
@@ -23,4 +25,3 @@ tags:
 ![](/assets/flyjack_05.png)
 
 ![](/assets/flyjack_all.png)
-

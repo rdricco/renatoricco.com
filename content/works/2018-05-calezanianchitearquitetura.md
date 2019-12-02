@@ -1,7 +1,8 @@
 ---
 title: Calezani Anchite Arquitetura
 slug: calezani-anchite-arquitetura
-date: '2018-01-01'
+date: "2018-01-01"
+transition: "yellow"
 preview: /assets/cover_calezani-logo.png
 cover: /assets/cover_calezani-logo.png
 category: Institutional Site

@@ -1,7 +1,8 @@
 ---
 title: Conviva
 slug: conviva
-date: '2018-03-01'
+date: "2018-03-01"
+transition: "yellow"
 preview: /assets/cover_conviva.png
 cover: /assets/cover_conviva.png
 category: Institutional Site
@@ -21,4 +22,3 @@ tags:
 ![](/assets/conviva_04.png)
 
 ![](/assets/conviva_05.png)
-

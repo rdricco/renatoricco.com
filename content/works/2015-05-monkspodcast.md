@@ -1,7 +1,8 @@
 ---
 title: Monks In Dunks Podcast
 slug: monks-in-dunks-podcast
-date: '2015-05-01'
+date: "2015-05-01"
+transition: "yellow"
 preview: /assets/cover_monks.png
 cover: /assets/cover_monks.png
 category: Design
@@ -10,6 +11,7 @@ tags:
   - Cover Art
   - Web
 ---
+
 .
 
 ![](/assets/monks_02.png)

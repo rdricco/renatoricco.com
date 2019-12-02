@@ -1,7 +1,8 @@
 ---
 title: Iandi - Gatsby Starter Kit
 slug: iandi-gatsby
-date: '2018-04-01'
+date: "2018-04-01"
+transition: "yellow"
 preview: /assets/cover_gatsby.png
 cover: /assets/cover_gatsby.png
 category: Development Starter Kit

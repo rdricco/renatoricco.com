@@ -1,7 +1,8 @@
 ---
 title: Grupo Avenida
 slug: grupo-avenida
-date: '2019-01-01'
+date: "2019-01-01"
+transition: "yellow"
 preview: /assets/cover_avenida.png
 cover: /assets/cover_avenida.png
 category: Ecommerce
@@ -11,6 +12,7 @@ tags:
   - CSS
   - HTML
 ---
+
 .
 
 ![](/assets/grupoavenida_01.jpg)

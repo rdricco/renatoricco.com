@@ -1,7 +1,8 @@
 ---
 title: Flyjack - Release Party
 slug: flyjack-release-party
-date: '2017-03-03'
+date: "2017-03-03"
+transition: "yellow"
 preview: /assets/cover_flyjack_flyer.png
 cover: /assets/cover_flyjack_flyer.png
 category: Design
@@ -9,6 +10,7 @@ tags:
   - Print
   - Editorial Design
 ---
+
 .
 
 ![](/assets/flyjack_flyer_00.png)

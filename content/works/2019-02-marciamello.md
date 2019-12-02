@@ -1,6 +1,7 @@
 ---
 title: Marcia Mello
-date: '2019-02-01'
+date: "2019-02-01"
+transition: "yellow"
 cover: /assets/cover_marciamello.png
 preview: /assets/cover_marciamello.png
 slug: marcia-mello
@@ -11,8 +12,8 @@ tags:
   - CSS
   - HTML
 ---
-.
 
+.
 
 ![](/assets/marciamello_01.jpg)
 

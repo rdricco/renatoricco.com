@@ -1,7 +1,8 @@
 ---
 title: Typejekyll - Jekyll Theme
 slug: typejekyll-theme
-date: '2017-10-01'
+date: "2017-10-01"
+transition: "yellow"
 preview: /assets/cover_jekyll.png
 cover: /assets/cover_jekyll.png
 category: Development Starter Kit
@@ -11,6 +12,7 @@ tags:
   - Headless CMS
   - Jekyll
 ---
+
 .
 
 ![](/assets/typejekyll_00.jpg)
@@ -20,4 +22,3 @@ tags:
 ![](/assets/typejekyll_02.jpg)
 
 ![](/assets/typejekyll_03.jpg)
-
