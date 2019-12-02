@@ -10,7 +10,7 @@ import {
 } from "rebass/styled-components";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-export default PreviewCard class Card extends React.Component {
+export default class PreviewCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
