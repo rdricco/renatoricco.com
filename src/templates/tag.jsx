@@ -33,32 +33,33 @@ export default class TagTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-	query TagPage($tag: String) {
-		allMarkdownRemark(
-			limit: 1000
-			sort: { fields: [fields___date], order: DESC }
-			filter: { frontmatter: { tags: { in: [$tag] } } }
-		) {
-			totalCount
-			edges {
-				node {
-					fields {
-						slug
-						date
-					}
-					excerpt
-					timeToRead
-					frontmatter {
-						title
-						date
-						preview
-						cover
-						tags
-						category
-				}
-			}
-		}
-	}
+  query TagPage($tag: String) {
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields: [fields___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          fields {
+            slug
+            date
+          }
+          excerpt
+          timeToRead
+          frontmatter {
+            title
+            date
+            preview
+            cover
+            tags
+            category
+          }
+        }
+      }
+    }
+  }
 `;
 
 const ContentContainer = styled(Box)`
