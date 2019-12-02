@@ -1,4 +1,6 @@
 import React from "react";
+import styled from "styled-components";
+import { Flex } from "rebass/styled-components";
 import Card from "../Card";
 
 export default class PostListing extends React.Component {
@@ -39,3 +41,14 @@ export default class PostListing extends React.Component {
     );
   }
 }
+
+const CardsContainer = styled(Flex)`
+  a,
+  a:visited,
+  a:active,
+  a:hover {
+    color: inherit;
+    text-decoration-color: none;
+    text-decoration: none;
+  }
+`;
