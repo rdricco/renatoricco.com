@@ -13,7 +13,7 @@ export default class PostListing extends React.Component {
         cover: postEdge.node.frontmatter.cover,
         preview: postEdge.node.frontmatter.preview,
         title: postEdge.node.frontmatter.title,
-        transition: postEdge.node.frontmatter.title,
+        transition: postEdge.node.frontmatter.transition,
         date: postEdge.node.fields.date,
         excerpt: postEdge.node.excerpt,
         timeToRead: postEdge.node.timeToRead
