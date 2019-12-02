@@ -71,7 +71,6 @@ export const pageQuery = graphql`
         date(formatString: "MM/YYYY")
         category
         tags
-        transition
       }
       fields {
         slug
