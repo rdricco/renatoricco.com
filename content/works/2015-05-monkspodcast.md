@@ -10,5 +10,6 @@ tags:
   - Cover Art
   - Web
 ---
+.
 
 ![](/assets/monks_02.png)

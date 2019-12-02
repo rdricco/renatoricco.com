@@ -12,6 +12,8 @@ tags:
   - HTML
 ---
 
+.
+
 ![](/assets/fiatfashion_01.jpg)
 
 ![](/assets/fiatfashion_02.jpg)

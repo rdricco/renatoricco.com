@@ -11,5 +11,6 @@ tags:
   - CSS
   - HTML
 ---
+.
 
 ![](/assets/gregory_01.jpg)

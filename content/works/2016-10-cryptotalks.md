@@ -8,6 +8,7 @@ category: Design
 tags:
   - Logo Design
 ---
+.
 
 ![](/assets/crypto_00.png)
 

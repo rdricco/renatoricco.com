@@ -1,7 +1,7 @@
 locale: "pt-br"
 backend:
   name: github # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
-  branch: feature/gatsbyv2 # Branch to update
+  branch: feature/master # Branch to update
   repo: rdricco/renatoricco.com # Repo for pushing new commits. Make sure to replace with your repo!
 
 media_folder: static/assets
@@ -9,8 +9,8 @@ public_folder: assets
 # publish_mode: editorial_workflow
 # logo_url: https://elated-wozniak-10af2e.netlify.com/assets/reallybigsky.jpg
 
-site_url: https://beta.renatoricco.com/
-display_url: https://beta.renatoricco.com/
+site_url: https://renatoricco.com/
+display_url: https://renatoricco.com/
 
 collections:
   - name: portfolio

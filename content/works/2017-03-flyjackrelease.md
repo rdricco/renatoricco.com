@@ -9,6 +9,7 @@ tags:
   - Posters
   - Flyers
 ---
+.
 
 ![](/assets/flyjack_pressrelease_00.png)
 

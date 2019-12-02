@@ -10,6 +10,7 @@ tags:
   - Art Direction
   - Logo Design
 ---
+.
 
 ![](/assets/flyjack_00.png)
 

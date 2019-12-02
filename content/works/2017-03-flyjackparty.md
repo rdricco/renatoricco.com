@@ -9,6 +9,7 @@ tags:
   - Print
   - Editorial Design
 ---
+.
 
 ![](/assets/flyjack_flyer_00.png)
 

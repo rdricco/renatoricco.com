@@ -11,6 +11,7 @@ tags:
   - Headless CMS
   - Jekyll
 ---
+.
 
 ![](/assets/typejekyll_00.jpg)
 

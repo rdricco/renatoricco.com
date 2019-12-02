@@ -10,7 +10,7 @@ tags:
   - Logo Design
 ---
 
-Implementação ecommerce VTEX
+.
 
 ![](/assets/broto_00.png)
 

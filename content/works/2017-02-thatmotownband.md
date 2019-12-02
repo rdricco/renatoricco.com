@@ -8,5 +8,6 @@ category: Design
 tags:
   - Logo Design
 ---
+.
 
 ![](/assets/thatmotownband_00.png)
