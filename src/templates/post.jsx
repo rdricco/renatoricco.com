@@ -75,6 +75,8 @@ const ContentContainer = styled(Box)`
   padding: 50px 0px 20px 0px;
   img {
     max-width: 100%;
+    width: 100%;
+    height: auto;
     box-shadow: grey 0.8px 0.9px 3px;
     margin-bottom: 20px; 
   }
