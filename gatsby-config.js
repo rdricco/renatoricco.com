@@ -58,6 +58,7 @@ module.exports = {
 					{
 						resolve: 'gatsby-remark-responsive-iframe'
 					},
+					'gatsby-remark-images-zoom',
 					`gatsby-remark-emoji`,
 					`gatsby-remark-widows`,
 					`gatsby-remark-responsive-iframe`,
