@@ -55,7 +55,7 @@ export default class Header extends Component {
 								</AniLink>
 							</Box>
 							<LinkBox ml='auto' className='notice-container'>
-								<AniLink cover bg='#F2C94C' to='works'>
+								<AniLink cover bg='#FFFFFF' to='works'>
 									<Text fontSize={this.props.textSize}>Works</Text>
 								</AniLink>
 							</LinkBox>
