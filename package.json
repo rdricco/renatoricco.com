@@ -47,7 +47,7 @@
         "gatsby-remark-responsive-image": "^1.0.0-alpha13-alpha.435e0178",
         "gatsby-remark-widows": "^1.0.0",
         "gatsby-source-filesystem": "^2.1.28",
-        "gatsby-transformer-remark": "^2.6.34",
+        "gatsby-transformer-remark": "^5.25.1",
         "gatsby-transformer-sharp": "^2.2.19",
         "gsap": "^3.0.1",
         "lodash": "^4.17.15",
